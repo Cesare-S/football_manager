@@ -1,16 +1,16 @@
 public class Player {
-    String name;
-    String surname;
-    int age;
-    int overall;
-    String role;
+    private String name;
+    private String surname;
+    private int age;
+    private int overall;
+    private String role;
 
     public Player(String playerName, String playerSurname, int playerAge, int playerOverall, String playerRole) {
-        name = playerName;
-        surname = playerSurname;
-        age = playerAge;
-        overall = playerOverall;
-        role = playerRole;
+        this.name = playerName;
+        this.surname = playerSurname;
+        this.age = playerAge;
+        this.overall = playerOverall;
+        this.role = playerRole;
     }
 
     public String getName() {
