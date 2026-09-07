@@ -7,11 +7,26 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.net.InetSocketAddress;
 
+import model.Club;
+import model.Team;
+import model.Player;
+
 public class WebServer {
 
     public static void main(String[] args) throws IOException {
         int port = 8080;
         
+         Player midfielder = new Player("Kevin", "De Bruyne", 32, 89, "T");
+        
+        Team team = new Team("Napoli");
+
+        team.insertPlayerOnTeam(midfielder);
+
+        Player goalkeeper = new Player("Alex", "Meret", 28, 83, "Por");
+
+        team.insertPlayerOnTeam(goalkeeper);
+
+        Club club = new Club("Napoli Calcio", team);
         HttpServer server = HttpServer.create(new InetSocketAddress(port), 0);
         
         // 3. Associa un percorso (context) a un gestore di richieste (Handler)
@@ -19,7 +34,7 @@ public class WebServer {
             @Override
             public void handle(HttpExchange exchange) throws IOException {
                 try {
-                String response = "<h1>Benvenuto sul server HTTP Java!</h1>";
+                String response = "<h1>Benvenuto nella pagina del club:"+club.getName()+"!</h1>";
                 
                 exchange.getResponseHeaders().set("Content-Type", "text/html; charset=UTF-8");
                 
