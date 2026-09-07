@@ -1,6 +1,6 @@
 public class Main {
 
-    public static void main() {
+    public static void main(String[] args) {
     
         Player midfielder = new Player("Kevin", "De Bruyne", 32, 89, "T");
         System.out.println(midfielder.nuovaVersioneGiocatore());
@@ -15,7 +15,7 @@ public class Main {
         team.insertPlayerOnTeam(goalkeeper);
 
 
-        System.out.println(team.getPlayers());
+        System.out.println(team.getPlayers().toString());
 
     }
    

@@ -7,6 +7,11 @@ public class Team {
     private List<Player> players;
 
     public Team(String nameTeam) {
+
+         if (nameTeam == null || nameTeam.trim().isEmpty()) {
+            throw new IllegalArgumentException("Il nome del team non può essere vuoto.");
+        }
+
         this.name = nameTeam;
         this.players = new ArrayList<>();
     
@@ -21,6 +26,10 @@ public class Team {
     }
 
     public void insertPlayerOnTeam(Player teamPlayer) {
+
+        if (teamPlayer == null) {
+            throw new IllegalArgumentException("Necessario inserire un giocatore.");
+        }
         this.players.add(teamPlayer);
     }
 }

@@ -6,6 +6,27 @@ public class Player {
     private String role;
 
     public Player(String playerName, String playerSurname, int playerAge, int playerOverall, String playerRole) {
+
+        if (playerName == null || playerName.trim().isEmpty()) {
+            throw new IllegalArgumentException("Il nome non può essere vuoto.");
+        }
+
+        if (playerSurname == null || playerSurname.trim().isEmpty()) {
+            throw new IllegalArgumentException("Il cognome non può essere vuoto.");
+        }
+
+        if (playerAge < 16 || playerAge > 40) {
+            throw new IllegalArgumentException("Giocatore fuori dal range di età.");
+        }
+
+        if (playerOverall > 100 || playerOverall < 0) {
+            throw new IllegalArgumentException("Overall giocatore non ammesso.");
+        }
+
+        if (playerRole == null || playerRole.trim().isEmpty()) {
+            throw new IllegalArgumentException("Il ruolo non può essere vuoto.");
+        }
+
         this.name = playerName;
         this.surname = playerSurname;
         this.age = playerAge;
