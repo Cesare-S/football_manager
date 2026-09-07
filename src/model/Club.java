@@ -1,3 +1,5 @@
+package model;
+
 public class Club {
 
     private String name;
