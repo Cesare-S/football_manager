@@ -1,0 +1,7 @@
+# Database locale e file temporanei SQLite (schema e seed restano versionabili).
+/data/*.db
+/data/*.db-*
+/data/*.sqlite
+/data/*.sqlite-*
+/data/*.sqlite3
+/data/*.sqlite3-*
