@@ -6,12 +6,13 @@ import java.sql.Statement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Optional;
+import java.sql.Connection;  
 
 public class ManagerRepository {
     
     public Manager saveManager(Manager manager) throws SQLException {
         
-        try (Connection con = Database.connection()){
+        try (Connection connection = Database.connection()){
         String sql = "INSERT INTO manager (name, email, password) VALUES (?, ?, ?)";
         PreparedStatement pstmt = connection.prepareStatement(sql);
        
@@ -30,12 +31,12 @@ public class ManagerRepository {
                 if (rs.next()) {
                     idInserito = rs.getInt(1); 
                     String sqlSelect = "SELECT * FROM manager WHERE id = ?";
-                    PreparedStatement pstmtSelect = connection.prepareStatement(sqlSelect);
+                    PreparedStatement pstmtSelect = connection.prepareStatement(sqlSelect, Statement.RETURN_GENERATED_KEYS);
                     pstmtSelect.setInt(1, idInserito);
                     
                     ResultSet getManager = pstmtSelect.executeQuery();
                     if (getManager.next()) {
-                        return new Manager(getManager->getInt("id"), manager.getName(), manager.getEmail(), manager.getPassword(), getManager->getInt("budget_eur"));
+                        return new Manager(getManager.getInt("id"), manager.getName(), manager.getEmail(), manager.getPassword(), getManager.getInt("budget_eur"));
                     }
                     
                 }
@@ -54,7 +55,7 @@ public class ManagerRepository {
 
     public Manager getById(int id) throws SQLException{
 
-        try (Connection con = Database.connection()){
+        try (Connection connection = Database.connection()){
 
             String sqlSelect = "SELECT * FROM manager WHERE id = ?";
                     PreparedStatement pstmtSelect = connection.prepareStatement(sqlSelect);
@@ -74,7 +75,7 @@ public class ManagerRepository {
 
     public Manager getByEmail(String email) throws SQLException{
 
-        try (Connection con = Database.connection()){
+        try (Connection connection = Database.connection()){
              String sqlSelect = "SELECT * FROM manager WHERE email = ?";
                     PreparedStatement pstmtSelect = connection.prepareStatement(sqlSelect);
                     pstmtSelect.setString(1, email);
