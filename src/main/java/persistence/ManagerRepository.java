@@ -14,7 +14,7 @@ public class ManagerRepository {
         
         try (Connection connection = Database.connection()){
         String sql = "INSERT INTO manager (name, email, password) VALUES (?, ?, ?)";
-        PreparedStatement pstmt = connection.prepareStatement(sql);
+        PreparedStatement pstmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
        
             pstmt.setString(1, manager.getName()); 
             pstmt.setString(2, manager.getEmail());
@@ -44,9 +44,7 @@ public class ManagerRepository {
                 rs.close();
             
             }
-            } catch (SQLException e) {
-            e.printStackTrace();
-        }
+            } 
        
        
 
@@ -58,7 +56,7 @@ public class ManagerRepository {
         try (Connection connection = Database.connection()){
 
             String sqlSelect = "SELECT * FROM manager WHERE id = ?";
-                    PreparedStatement pstmtSelect = connection.prepareStatement(sqlSelect);
+                    PreparedStatement pstmtSelect = connection.prepareStatement(sqlSelect, Statement.RETURN_GENERATED_KEYS);
                     pstmtSelect.setInt(1, id);
                     
                     ResultSet getManager = pstmtSelect.executeQuery();
@@ -68,16 +66,14 @@ public class ManagerRepository {
 
                     throw new SQLException("Errore: inserimento non riuscito!");
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        } 
     }
 
     public Manager getByEmail(String email) throws SQLException{
 
-        try (Connection connection = Database.connection()){
+        try (Connection connection = Database.connection()) {
              String sqlSelect = "SELECT * FROM manager WHERE email = ?";
-                    PreparedStatement pstmtSelect = connection.prepareStatement(sqlSelect);
+                    PreparedStatement pstmtSelect = connection.prepareStatement(sqlSelect, Statement.RETURN_GENERATED_KEYS);
                     pstmtSelect.setString(1, email);
                     
                     ResultSet getManager = pstmtSelect.executeQuery();
@@ -86,9 +82,8 @@ public class ManagerRepository {
                     }
 
                     throw new SQLException("Errore: inserimento non riuscito!");
-        } catch (SQLException e) {
-                    e.printStackTrace();
                 }
+                    
     }
 
 
