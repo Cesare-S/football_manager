@@ -8,9 +8,21 @@ public class Manager{
     private String password;
     private long budgetEur;
 
+    public Manager(Long dbId, String dbName, String dbEmail, String dbPassword, long dbBudgetEur) {
+        
+        this(dbName, dbEmail, dbPassword);
+        if (dbId == null) {
+            throw new IllegalArgumentException("Id non può essere vuoto.");
+        }
+
+        this.id = dbId;
+        this.budgetEur = dbBudgetEur;
+
+    }
 
     public Manager(String formName, String formEmail, String formPassword) {
 
+        
         if (formName == null || formName.trim().isEmpty()) {
             throw new IllegalArgumentException("Il nome non può essere vuoto.");
         }
