@@ -3,18 +3,22 @@ package persistence;
 import model.Manager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.Optional;
 
 public class ManagerRepository {
     
     public Manager saveManager(Manager manager) throws SQLException {
         
-       String sql = "INSERT INTO manager (name, email, password, budget_eur) VALUES (?, ?, ?, ?)";
+        try (Connection con = Database.connection()){
+        String sql = "INSERT INTO manager (name, email, password) VALUES (?, ?, ?)";
         PreparedStatement pstmt = connection.prepareStatement(sql);
-       if (pstmt){
+       
             pstmt.setString(1, manager.getName()); 
             pstmt.setString(2, manager.getEmail());
             pstmt.setString(3, manager.getPassword());
-            pstmt.setLong(4, 50000000); 
+     
     
             int righeInserite = pstmt.executeUpdate(); 
 
@@ -39,15 +43,20 @@ public class ManagerRepository {
                 rs.close();
             
             }
-       }else{
-        throw new SQLException("Errore: inserimento non riuscito!");
-       }
+            } catch (SQLException e) {
+            e.printStackTrace();
+        }
+       
+       
 
     }
 
 
     public Manager getById(int id) throws SQLException{
-                    String sqlSelect = "SELECT * FROM manager WHERE id = ?";
+
+        try (Connection con = Database.connection()){
+
+            String sqlSelect = "SELECT * FROM manager WHERE id = ?";
                     PreparedStatement pstmtSelect = connection.prepareStatement(sqlSelect);
                     pstmtSelect.setInt(1, id);
                     
@@ -57,10 +66,16 @@ public class ManagerRepository {
                     }
 
                     throw new SQLException("Errore: inserimento non riuscito!");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public Manager getByEmail(String email) throws SQLException{
-                    String sqlSelect = "SELECT * FROM manager WHERE email = ?";
+
+        try (Connection con = Database.connection()){
+             String sqlSelect = "SELECT * FROM manager WHERE email = ?";
                     PreparedStatement pstmtSelect = connection.prepareStatement(sqlSelect);
                     pstmtSelect.setString(1, email);
                     
@@ -70,6 +85,9 @@ public class ManagerRepository {
                     }
 
                     throw new SQLException("Errore: inserimento non riuscito!");
+        } catch (SQLException e) {
+                    e.printStackTrace();
+                }
     }
 
 
