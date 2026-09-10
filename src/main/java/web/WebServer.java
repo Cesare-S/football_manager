@@ -5,17 +5,20 @@ import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpExchange;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.net.InetSocketAddress;
 import service.RegistrationService;
-
 
 public class WebServer {
 
     private final RegistrationService registrationService;
+    private final TemplateRenderer templateRenderer;
 
-    public WebServer(RegistrationService registrationService) {
+    public WebServer(RegistrationService registrationService, TemplateRenderer templateRenderer) {
 
         this.registrationService = registrationService;
+        this.templateRenderer = templateRenderer;
      
                  
     }
@@ -29,26 +32,46 @@ public class WebServer {
         server.createContext("/", new HttpHandler() {
             @Override
             public void handle(HttpExchange exchange) throws IOException {
-                try {
-                String response = "<h1>Benvenuto su football manager scarso!</h1>";
+             
+                String response = templateRenderer.returnTemplate("register.html");
+                byte[] responseBytes = response.getBytes(StandardCharsets.UTF_8);
                 
                 
 
                 exchange.getResponseHeaders().set("Content-Type", "text/html; charset=UTF-8");
                 
-                exchange.sendResponseHeaders(200, response.getBytes().length);
+                exchange.sendResponseHeaders(200, responseBytes.length);
 
                 
-                OutputStream os = exchange.getResponseBody();
-                os.write(response.getBytes());
-                os.close();
-                }catch(Exception ex){
-                    throw new IOException("Errore di connesione.");
+                try (OutputStream os = exchange.getResponseBody()) {
+                    os.write(responseBytes);
                 }
+                
                 
             }
         });
         
+        server.createContext("/static/css/style.css", new HttpHandler() {
+            @Override
+            public void handle(HttpExchange exchange) throws IOException {
+                try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream("static/css/style.css")) {
+                    if (inputStream == null || !exchange.getRequestURI().getPath().equals("/static/css/style.css")) {
+                        exchange.sendResponseHeaders(404, -1);
+                        exchange.close();
+                        return;
+                    }
+
+                    byte[] cssBytes = inputStream.readAllBytes();
+                    exchange.getResponseHeaders().set("Content-Type", "text/css; charset=UTF-8");
+                    exchange.sendResponseHeaders(200, cssBytes.length);
+
+                    try (OutputStream os = exchange.getResponseBody()) {
+                        os.write(cssBytes);
+                    }
+                }
+            }
+        });
+
         server.start();
 
         
@@ -57,4 +80,3 @@ public class WebServer {
     }
 
 }
-

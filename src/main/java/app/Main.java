@@ -1,9 +1,10 @@
 package app;
 
-import web.WebServer;
+import web.*;
 import persistence.ManagerRepository;
 import service.RegistrationService;
 import java.io.IOException;
+
 
 public class Main {
 
@@ -13,9 +14,13 @@ public class Main {
 
         RegistrationService registrationService = new RegistrationService(managerRepository);
 
-        WebServer webServer = new WebServer(registrationService);
+         TemplateRenderer templateRenderer = new TemplateRenderer();
 
-        WebServer.startServer(8080);
+        WebServer webServer = new WebServer(registrationService, templateRenderer);
+
+       
+
+        webServer.startServer(8080);
 
        
 
