@@ -18,12 +18,10 @@ public class RegistrationService {
 
         Manager manager = new Manager(name, email, password);
 
-        src.main.java.persistence.ManagerRepository managerRepository = new ManagerRepository();
-
-        Optional checkManager = managerRepository.getByEmail(email);
+        Optional<Manager> checkManager = managerRepository.getByEmail(email);
 
         if (checkManager.isPresent()){
-            throw new SQLException("Errore: email già presente!");
+            throw new IllegalArgumentException("Errore: email già presente!");
         }
 
         return managerRepository.saveManager(manager);

@@ -1,27 +1,21 @@
 package app;
 
-import model.Player;
-import model.Team;
-import model.Club;
+import web.WebServer;
+import persistence.ManagerRepository;
+import service.RegistrationService;
+import java.io.IOException;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
     
-        Player midfielder = new Player("Kevin", "De Bruyne", 32, 89, "T");
-        System.out.println(midfielder.nuovaVersioneGiocatore());
-        
-        Team team = new Team("Napoli");
+        ManagerRepository managerRepository = new ManagerRepository();
 
-        team.insertPlayerOnTeam(midfielder);
+        RegistrationService registrationService = new RegistrationService(managerRepository);
 
-        Player goalkeeper = new Player("Alex", "Meret", 28, 83, "Por");
-        System.out.println(goalkeeper.nuovaVersioneGiocatore());
+        WebServer WebServer = new WebServer(registrationService);
 
-        team.insertPlayerOnTeam(goalkeeper);
-
-
-        System.out.println(team.getPlayers().toString());
+        WebServer.startServer(8080);
 
        
 
