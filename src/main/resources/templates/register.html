@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Manager | Nuova carriera</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <main class="new-career">
+        <section class="hero-panel" aria-labelledby="game-title">
+            <div class="brand">
+                <span class="brand-mark" aria-hidden="true">FM</span>
+                <div>
+                    <p class="eyebrow">Career mode</p>
+                    <h1 id="game-title">Football Manager</h1>
+                </div>
+            </div>
+
+            <div class="hero-copy">
+                <p class="season">Stagione 2026 / 27</p>
+                <h2>La panchina è tua.</h2>
+                <p>Costruisci il tuo profilo, scegli il club e guida ogni decisione: mercato, spogliatoio, strutture e risultati.</p>
+            </div>
+
+            <div class="match-card" aria-label="Obiettivi della carriera">
+                <div>
+                    <span>01</span>
+                    <strong>Scegli il club</strong>
+                </div>
+                <div>
+                    <span>02</span>
+                    <strong>Costruisci la rosa</strong>
+                </div>
+                <div>
+                    <span>03</span>
+                    <strong>Scrivi la storia</strong>
+                </div>
+            </div>
+        </section>
+
+        <section class="form-panel" aria-labelledby="registration-title">
+            <div class="form-heading">
+                <p class="eyebrow">Nuova partita</p>
+                <h2 id="registration-title">Crea il tuo manager</h2>
+                <p>Questi dati identificano la tua carriera.</p>
+            </div>
+
+            <form action="/register" method="post">
+                <div class="field">
+                    <label for="name">Nome manager</label>
+                    <input id="name" name="name" type="text" placeholder="Il tuo nome" autocomplete="name" required>
+                </div>
+
+                <div class="field">
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" placeholder="nome@esempio.it" autocomplete="email" required>
+                </div>
+
+                <div class="field">
+                    <label for="password">Password</label>
+                    <input id="password" name="password" type="password" placeholder="Scegli una password" autocomplete="new-password" required>
+                </div>
+
+                <button type="submit">Inizia la carriera <span aria-hidden="true">→</span></button>
+            </form>
+
+            <p class="login-link">Hai già una carriera? <a href="/login">Accedi al profilo</a></p>
+        </section>
+    </main>
+</body>
+</html>

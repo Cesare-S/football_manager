@@ -13,7 +13,7 @@ public class Main {
 
         RegistrationService registrationService = new RegistrationService(managerRepository);
 
-        WebServer WebServer = new WebServer(registrationService);
+        WebServer webServer = new WebServer(registrationService);
 
         WebServer.startServer(8080);
 
