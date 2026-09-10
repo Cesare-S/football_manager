@@ -9,6 +9,8 @@ import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.net.InetSocketAddress;
 import service.RegistrationService;
+import java.util.Map;
+import java.sql.SQLException;
 
 public class WebServer {
 
@@ -47,6 +49,56 @@ public class WebServer {
                     os.write(responseBytes);
                 }
                 
+                
+            }
+        });
+
+        server.createContext("/register", new HttpHandler() {
+            @Override
+            public void handle(HttpExchange exchange) throws IOException {
+             
+                String response = "completed";
+
+                byte[] responseBytes = response.getBytes(StandardCharsets.UTF_8);
+
+
+                if (exchange.getRequestMethod().equals("POST")){
+
+                    try (InputStream getParsedBody = exchange.getRequestBody()) {
+
+
+                        String formDataString = new String(getParsedBody.readAllBytes(), StandardCharsets.UTF_8);
+
+
+                        Map<String, String> formData = FormParser.mapForm(formDataString);
+
+                        String name = formData.get("name");
+                        String email = formData.get("email");
+                        String password = formData.get("password");
+
+                        try {
+                            registrationService.registerManager(name, email, password);
+                            exchange.sendResponseHeaders(200, responseBytes.length);
+
+
+                        } catch (SQLException e) {
+                            throw new IOException("errore registrazione");
+                        }
+
+
+                    try (OutputStream os = exchange.getResponseBody()) {
+                        os.write(responseBytes);
+                    }
+
+                    return;
+                    }
+                    
+                }else{
+                    exchange.sendResponseHeaders(405, -1);
+
+                    return;
+
+                }
                 
             }
         });
