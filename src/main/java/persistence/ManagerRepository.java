@@ -31,12 +31,12 @@ public class ManagerRepository {
                 if (rs.next()) {
                     idInserito = rs.getInt(1); 
                     String sqlSelect = "SELECT * FROM manager WHERE id = ?";
-                    PreparedStatement pstmtSelect = connection.prepareStatement(sqlSelect, Statement.RETURN_GENERATED_KEYS);
+                    PreparedStatement pstmtSelect = connection.prepareStatement(sqlSelect);
                     pstmtSelect.setInt(1, idInserito);
                     
                     ResultSet getManager = pstmtSelect.executeQuery();
                     if (getManager.next()) {
-                        return new Manager(getManager.getInt("id"), manager.getName(), manager.getEmail(), manager.getPassword(), getManager.getInt("budget_eur"));
+                        return new Manager(getManager.getLong("id"), getManager.getString("name"), getManager.getString("email"), getManager.getString("password"), getManager.getInt("budget_eur"));
                     }
                     
                 }
@@ -44,6 +44,7 @@ public class ManagerRepository {
                 rs.close();
             
             }
+            throw new SQLException("Errore: nessuna riga recuperata!");
             } 
        
        
@@ -51,37 +52,39 @@ public class ManagerRepository {
     }
 
 
-    public Manager getById(int id) throws SQLException{
+    public Optional<Manager> getById(int id) throws SQLException{
 
         try (Connection connection = Database.connection()){
 
             String sqlSelect = "SELECT * FROM manager WHERE id = ?";
-                    PreparedStatement pstmtSelect = connection.prepareStatement(sqlSelect, Statement.RETURN_GENERATED_KEYS);
-                    pstmtSelect.setInt(1, id);
+                    PreparedStatement pstmtSelect = connection.prepareStatement(sqlSelect);
+                    pstmtSelect.setLong(1, id);
                     
                     ResultSet getManager = pstmtSelect.executeQuery();
                     if (getManager.next()) {
-                        return new Manager(getManager->getInt("id"), getManager->getString("name"), getManager->getString("email"), getManager->getString("password"), getManager->getInt("budget_eur"));
+                        Manager manager = new Manager(getManager.getLong("id"), getManager.getString("name"), getManager.getString("email"), getManager.getString("password"), getManager.getInt("budget_eur"));
+                        return Optional.of(manager);
                     }
 
-                    throw new SQLException("Errore: inserimento non riuscito!");
+                    return Optional.empty();
 
         } 
     }
 
-    public Manager getByEmail(String email) throws SQLException{
+    public Optional<Manager> getByEmail(String email) throws SQLException{
 
         try (Connection connection = Database.connection()) {
              String sqlSelect = "SELECT * FROM manager WHERE email = ?";
-                    PreparedStatement pstmtSelect = connection.prepareStatement(sqlSelect, Statement.RETURN_GENERATED_KEYS);
+                    PreparedStatement pstmtSelect = connection.prepareStatement(sqlSelect);
                     pstmtSelect.setString(1, email);
                     
                     ResultSet getManager = pstmtSelect.executeQuery();
                     if (getManager.next()) {
-                        return new Manager(getManager->getInt("id"), getManager->getString("name"), getManager->getString("email"), getManager->getString("password"), getManager->getInt("budget_eur"));
+                        Manager manager = new Manager(getManager.getLong("id"), getManager.getString("name"), getManager.getString("email"), getManager.getString("password"), getManager.getInt("budget_eur"));
+                        return Optional.of(manager);
                     }
 
-                    throw new SQLException("Errore: inserimento non riuscito!");
+                    return Optional.empty();
                 }
                     
     }
