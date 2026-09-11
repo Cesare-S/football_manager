@@ -10,6 +10,12 @@ public class Database {
     public static Connection connection() throws SQLException {
         String url = "jdbc:sqlite:data/football_manager.db";
 
+        try {
+            Class.forName("org.sqlite.JDBC");
+        } catch (ClassNotFoundException e) {
+            throw new SQLException("errore");
+        }
+        
         Connection conn = DriverManager.getConnection(url);
         if (conn != null){
 

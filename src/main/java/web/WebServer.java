@@ -80,6 +80,7 @@ public class WebServer {
 
 
                         } catch (SQLException e) {
+                            System.out.println("error " + e);
                             throw new IOException("errore registrazione");
                         }
 
