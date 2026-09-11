@@ -57,11 +57,7 @@ public class WebServer {
             @Override
             public void handle(HttpExchange exchange) throws IOException {
              
-                String response = "completed";
-
-                byte[] responseBytes = response.getBytes(StandardCharsets.UTF_8);
-
-
+            
                 if (exchange.getRequestMethod().equals("POST")){
 
                     try (InputStream getParsedBody = exchange.getRequestBody()) {
@@ -78,17 +74,15 @@ public class WebServer {
 
                         try {
                             registrationService.registerManager(name, email, password);
-                            exchange.sendResponseHeaders(200, responseBytes.length);
+                            exchange.getResponseHeaders().set("Location", "/choose-club");
+    
+                            exchange.sendResponseHeaders(302, -1);
 
 
                         } catch (SQLException e) {
                             throw new IOException("errore registrazione");
                         }
 
-
-                    try (OutputStream os = exchange.getResponseBody()) {
-                        os.write(responseBytes);
-                    }
 
                     return;
                     }
@@ -103,6 +97,29 @@ public class WebServer {
             }
         });
         
+
+        server.createContext("/choose-club", new HttpHandler() {
+            @Override
+            public void handle(HttpExchange exchange) throws IOException {
+             
+                String response = templateRenderer.returnTemplate("club-selection.html");
+                byte[] responseBytes = response.getBytes(StandardCharsets.UTF_8);
+                
+                
+
+                exchange.getResponseHeaders().set("Content-Type", "text/html; charset=UTF-8");
+                
+                exchange.sendResponseHeaders(200, responseBytes.length);
+
+                
+                try (OutputStream os = exchange.getResponseBody()) {
+                    os.write(responseBytes);
+                }
+                
+                
+            }
+        });
+
         server.createContext("/static/css/style.css", new HttpHandler() {
             @Override
             public void handle(HttpExchange exchange) throws IOException {
