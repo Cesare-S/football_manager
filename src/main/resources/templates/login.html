@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#111813">
+    <title>Torna in panchina · Football Manager</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="/" aria-label="Football Manager, home"><span class="brand-mark">fm<span>↗</span></span><span>FOOTBALL<br>MANAGER</span></a>
+        <span class="edition">IL TUO CLUB. LE TUE REGOLE.</span>
+        <span class="mode"><i aria-hidden="true"></i> MODALITÀ CARRIERA</span>
+    </header>
+    <main>
+        <section class="story" aria-labelledby="headline">
+            <p class="eyebrow"><span aria-hidden="true"></span> IL TUO POSTO È A BORDOCAMPO</p>
+            <h1 id="headline">La partita<br>continua.<br><em>Torna.</em><span class="title-dot" aria-hidden="true">↗</span></h1>
+            <p class="intro">Le idee sulla lavagna. La voce dello spogliatoio.<br>La prossima decisione porta la tua firma.</p>
+            <div class="tactical-board">
+                <div class="board-top"><span><i aria-hidden="true"></i> IL RICHIAMO DEL CAMPO</span><span>MATCHDAY</span></div>
+                <svg viewBox="0 0 560 280" role="img" aria-labelledby="pitch-title">
+                    <title id="pitch-title">Vista del campo dal tunnel dello stadio illuminato</title>
+                    <defs>
+                        <linearGradient id="tunnel-light" x1="0" y1="1" x2="0" y2="0"><stop stop-color="#c7f36c" stop-opacity=".02"/><stop offset="1" stop-color="#c7f36c" stop-opacity=".18"/></linearGradient>
+                    </defs>
+                    <path d="M24 252 160 90H400L536 252Z" fill="url(#tunnel-light)"/>
+                    <g fill="none" stroke="#89a28d" stroke-opacity=".35">
+                        <path d="M24 252 160 90H400L536 252ZM280 90V252M96 166H464"/>
+                        <ellipse cx="280" cy="166" rx="54" ry="22"/>
+                        <path d="M224 90 213 116H347L336 90M180 252 205 210H355L380 252"/>
+                        <path d="M50 64H510M66 48H494M86 32H474" stroke-dasharray="3 9"/>
+                    </g>
+                    <g fill="#c7f36c"><circle cx="138" cy="52" r="3"/><circle cx="208" cy="52" r="3"/><circle cx="280" cy="52" r="3"/><circle cx="352" cy="52" r="3"/><circle cx="422" cy="52" r="3"/></g>
+                    <path d="M0 0H76L132 280H0ZM560 0H484L428 280H560Z" fill="#111813"/>
+                    <path d="M76 0 132 280M484 0 428 280" stroke="#c7f36c" stroke-opacity=".45"/>
+                    <circle cx="280" cy="166" r="6" fill="#c7f36c"/>
+                    <circle cx="280" cy="166" r="14" fill="none" stroke="#c7f36c" stroke-opacity=".3"/>
+                </svg>
+                <div class="board-bottom"><span>Novanta minuti. Mille decisioni. Un solo mister.</span><span aria-hidden="true">↗</span></div>
+            </div>
+            <div class="story-footer"><span>ACCESSO / CARRIERA</span><span>LA TUA STORIA HA ANCORA MOLTO DA DIRE</span></div>
+        </section>
+        <section class="registration" aria-labelledby="login-title">
+            <ol class="steps" aria-label="Accesso alla carriera"><li aria-current="step"><span>01</span> Accedi</li><li><span>02</span> Riprendi la carriera</li></ol>
+            <div class="profile-card">
+                <div class="card-kicker"><span>IL TUO PROFILO</span><span class="profile-icon" aria-hidden="true">↗</span></div>
+                <h2 id="login-title">Bentornato,<br>mister.</h2>
+                <p class="form-intro">Entra con le credenziali del tuo manager.<br>Il prossimo capitolo comincia da qui.</p>
+                <form action="/login" method="post">
+                    <div class="field">
+                        <label for="email">La tua email <span>01</span></label>
+                        <input id="email" name="email" type="email" placeholder="nome@esempio.it" autocomplete="username" required>
+                    </div>
+                    <div class="field">
+                        <label for="password">La tua password <span>02</span></label>
+                        <input id="password" name="password" type="password" placeholder="La chiave del tuo spogliatoio" autocomplete="current-password" required>
+                    </div>
+                    <button type="submit">Torna in panchina <span aria-hidden="true">↗</span></button>
+                </form>
+                <p class="login-link">È la tua prima stagione? <a href="/">Crea il tuo manager <span aria-hidden="true">→</span></a></p>
+            </div>
+            <div class="bottom-note"><span aria-hidden="true">✦</span><p>Il talento scende in campo.<br><strong>La visione siede in panchina.</strong></p></div>
+        </section>
+    </main>
+    <footer class="page-footer"><span>FOOTBALL MANAGER <span class="footer-divider">/</span> IL GIOCO È NELLE TUE MANI</span><span>PASSIONE. VISIONE. IDENTITÀ.</span></footer>
+</body>
+</html>
