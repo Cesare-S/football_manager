@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#111813">
+        <title>
+            Mercato e prestiti · Football Manager
+        </title>
+        <link rel="stylesheet" href="../static/css/dashboard.css">
+    </head>
+    <body>
+        <!-- Anteprima statica autonoma: dati fittizi, nessuna connessione al database.
+         I collegamenti relativi consentono la navigazione aprendo i file nel browser.
+         Campi con id/name pronti per il successivo collegamento da parte dell'utente.
+         Non ci sono invii, azioni server, script o salvataggi. -->
+        <a class="skip-link" href="#main">
+            Vai al contenuto
+        </a>
+        <div class="app">
+            <aside class="sidebar">
+                <a class="brand" href="dashboard.html" aria-label="Football Manager, panoramica">
+                    <span class="brand-mark">
+                        fm↗
+                    </span>
+                    <span>
+                        FOOTBALL
+                        <br>
+                        MANAGER
+                    </span>
+                </a>
+                <div class="club-mini">
+                    <span class="crest" aria-hidden="true">
+                        AF
+                    </span>
+                    <div>
+                        <strong>
+                            Aurora FC
+                        </strong>
+                        <small>
+                            Il tuo club · esempio
+                        </small>
+                    </div>
+                </div>
+                <nav aria-label="Gestione del club">
+                    <div class="nav-group">
+                        <p class="nav-label">
+                            La tua scrivania
+                        </p>
+                        <ul>
+                            <li>
+                                <a class="nav-link" href="dashboard.html">
+                                    <span aria-hidden="true">
+                                        01
+                                    </span>
+                                    Panoramica
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="profile.html">
+                                    <span aria-hidden="true">
+                                        02
+                                    </span>
+                                    Profilo manager
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="inbox.html">
+                                    <span aria-hidden="true">
+                                        03
+                                    </span>
+                                    Comunicazioni
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="nav-group">
+                        <p class="nav-label">
+                            Società
+                        </p>
+                        <ul>
+                            <li>
+                                <a class="nav-link" href="club.html">
+                                    <span aria-hidden="true">
+                                        01
+                                    </span>
+                                    Identità del club
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="board.html">
+                                    <span aria-hidden="true">
+                                        02
+                                    </span>
+                                    Dirigenza e obiettivi
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="facilities.html">
+                                    <span aria-hidden="true">
+                                        03
+                                    </span>
+                                    Strutture
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="staff.html">
+                                    <span aria-hidden="true">
+                                        04
+                                    </span>
+                                    Staff
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="academy.html">
+                                    <span aria-hidden="true">
+                                        05
+                                    </span>
+                                    Settore giovanile
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="nav-group">
+                        <p class="nav-label">
+                            Amministrazione
+                        </p>
+                        <ul>
+                            <li>
+                                <a class="nav-link" href="finances.html">
+                                    <span aria-hidden="true">
+                                        01
+                                    </span>
+                                    Finanze
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="contracts.html">
+                                    <span aria-hidden="true">
+                                        02
+                                    </span>
+                                    Contratti del club
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="player-contracts.html">
+                                    <span aria-hidden="true">
+                                        03
+                                    </span>
+                                    Contratti giocatori
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="sponsors.html">
+                                    <span aria-hidden="true">
+                                        04
+                                    </span>
+                                    Sponsor
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="transfers.html" aria-current="page">
+                                    <span aria-hidden="true">
+                                        05
+                                    </span>
+                                    Mercato e prestiti
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="fans.html">
+                                    <span aria-hidden="true">
+                                        06
+                                    </span>
+                                    Tifosi e ricavi
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="settings.html">
+                                    <span aria-hidden="true">
+                                        07
+                                    </span>
+                                    Impostazioni
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <p class="sidebar-note">
+                    PASSIONE. VISIONE. IDENTITÀ.
+                    <br>
+                    Il gioco è nelle tue mani.
+                </p>
+            </aside>
+            <div class="workspace">
+                <header class="topbar">
+                    <p>
+                        UFFICIO DEL MANAGER
+                        <span aria-hidden="true">
+                            /
+                        </span>
+                        Mercato e prestiti
+                    </p>
+                    <div class="account">
+                        <span>
+                            2026/27 · 30 settembre
+                        </span>
+                        <a href="inbox.html" aria-label="Comunicazioni, 3 da leggere">
+                            Posta
+                            <span class="badge">
+                                3
+                            </span>
+                        </a>
+                        <a href="profile.html" aria-label="Profilo di Andrea Rossi">
+                            <span class="avatar" aria-hidden="true">
+                                AR
+                            </span>
+                        </a>
+                    </div>
+                </header>
+                <main id="main" tabindex="-1">
+                    <p class="preview">
+                        Anteprima statica · Club, persone e importi fittizi. I campi sono dimostrativi; salvataggi e operazioni non sono attivi.
+                    </p>
+                    <div class="page-heading">
+                        <div>
+                            <p class="eyebrow">
+                                Gestione del club / Mercato e prestiti
+                            </p>
+                            <h1>
+                                Negozia il prossimo passo.
+                            </h1>
+                            <p class="intro">
+                                Operazioni in entrata e in uscita, prestiti e obblighi economici.
+                            </p>
+                        </div>
+                    </div>
+                    <section class="stats" aria-label="Indicatori principali">
+                        <article class="stat">
+                            <p>
+                                Budget mercato
+                            </p>
+                            <strong>
+                                € 3 mln
+                            </strong>
+                            <small>
+                                Tetto di spesa dimostrativo
+                            </small>
+                        </article>
+                        <article class="stat">
+                            <p>
+                                Impegni confermati
+                            </p>
+                            <strong>
+                                € 800 mila
+                            </strong>
+                            <small>
+                                Inclusi nel budget mercato
+                            </small>
+                        </article>
+                        <article class="stat">
+                            <p>
+                                Margine residuo
+                            </p>
+                            <strong>
+                                € 2,2 mln
+                            </strong>
+                            <small>
+                                Prima di eventuali nuove operazioni
+                            </small>
+                        </article>
+                        <article class="stat">
+                            <p>
+                                Pratiche aperte
+                            </p>
+                            <strong>
+                                2
+                            </strong>
+                            <small>
+                                Nessuna operazione conclusa
+                            </small>
+                        </article>
+                    </section>
+                    <section class="panel">
+                        <h2>
+                            Registro trattative
+                        </h2>
+                        <div class="table-wrap" tabindex="0" role="region" aria-label="Operazioni fittizie · nessuna associazione a calciatori reali">
+                            <table>
+                                <caption>
+                                    Operazioni fittizie · nessuna associazione a calciatori reali
+                                </caption>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">
+                                            Calciatore
+                                        </th>
+                                        <th scope="col">
+                                            Operazione
+                                        </th>
+                                        <th scope="col">
+                                            Controparte
+                                        </th>
+                                        <th scope="col">
+                                            Importo proposto
+                                        </th>
+                                        <th scope="col">
+                                            Stato
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">
+                                            Simone Gori
+                                        </th>
+                                        <td>
+                                            Acquisto
+                                        </td>
+                                        <td>
+                                            Porto Blu FC
+                                        </td>
+                                        <td>
+                                            € 700.000
+                                        </td>
+                                        <td>
+                                            <span class="badge warn">
+                                                In trattativa
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            Nicolò Rizzi
+                                        </th>
+                                        <td>
+                                            Prestito in uscita
+                                        </td>
+                                        <td>
+                                            Borgo United
+                                        </td>
+                                        <td>
+                                            € 50.000
+                                        </td>
+                                        <td>
+                                            <span class="badge warn">
+                                                Da valutare
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                    <div class="grid">
+                        <section class="panel">
+                            <h2>
+                                Dettaglio · Prestito Nicolò Rizzi
+                            </h2>
+                            <dl class="facts">
+                                <div>
+                                    <dt>
+                                        Club di destinazione
+                                    </dt>
+                                    <dd>
+                                        Borgo United
+                                    </dd>
+                                </div>
+                                <div>
+                                    <dt>
+                                        Durata proposta
+                                    </dt>
+                                    <dd>
+                                        Fino al 30 giugno 2027
+                                    </dd>
+                                </div>
+                                <div>
+                                    <dt>
+                                        Corrispettivo in entrata
+                                    </dt>
+                                    <dd>
+                                        € 50.000
+                                    </dd>
+                                </div>
+                                <div>
+                                    <dt>
+                                        Stipendio a carico del destinatario
+                                    </dt>
+                                    <dd>
+                                        60%
+                                    </dd>
+                                </div>
+                                <div>
+                                    <dt>
+                                        Diritto di riscatto
+                                    </dt>
+                                    <dd>
+                                        € 600.000
+                                    </dd>
+                                </div>
+                                <div>
+                                    <dt>
+                                        Obbligo di riscatto
+                                    </dt>
+                                    <dd>
+                                        Assente
+                                    </dd>
+                                </div>
+                            </dl>
+                            <p class="note">
+                                Condizioni proposte, non ancora accettate.
+                            </p>
+                        </section>
+                        <section class="panel">
+                            <h2>
+                                Impegni precedenti
+                            </h2>
+                            <dl class="facts">
+                                <div>
+                                    <dt>
+                                        Rata acquisto già concordato
+                                    </dt>
+                                    <dd>
+                                        € 800.000
+                                    </dd>
+                                </div>
+                                <div>
+                                    <dt>
+                                        Scadenza pagamento
+                                    </dt>
+                                    <dd>
+                                        31 gennaio 2027
+                                    </dd>
+                                </div>
+                                <div>
+                                    <dt>
+                                        Disponibilità dopo gli impegni
+                                    </dt>
+                                    <dd>
+                                        € 2.200.000
+                                    </dd>
+                                </div>
+                            </dl>
+                            <p class="note">
+                                Le proposte ancora aperte non riducono il margine disponibile in questa anteprima.
+                            </p>
+                            <a href="player-contracts.html">
+                                Consulta gli accordi economici →
+                            </a>
+                        </section>
+                    </div>
+                    <section class="panel">
+                        <h2>
+                            Bozza di operazione
+                        </h2>
+                        <fieldset>
+                            <legend>
+                                Termini della proposta
+                            </legend>
+                            <div class="fields">
+                                <div class="field">
+                                    <label for="transfer-player">
+                                        Calciatore
+                                    </label>
+                                    <input id="transfer-player" name="transfer-player" type="text" value="">
+                                </div>
+                                <div class="field">
+                                    <label for="transfer-club">
+                                        Club controparte
+                                    </label>
+                                    <input id="transfer-club" name="transfer-club" type="text" value="">
+                                </div>
+                                <div class="field">
+                                    <label for="transfer-type">
+                                        Tipo di operazione
+                                    </label>
+                                    <select id="transfer-type" name="transfer-type">
+                                        <option>
+                                            Acquisto
+                                        </option>
+                                        <option>
+                                            Cessione
+                                        </option>
+                                        <option>
+                                            Prestito in entrata
+                                        </option>
+                                        <option>
+                                            Prestito in uscita
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="field">
+                                    <label for="transfer-fee">
+                                        Corrispettivo (€)
+                                    </label>
+                                    <input id="transfer-fee" name="transfer-fee" type="number" value="">
+                                </div>
+                                <div class="field">
+                                    <label for="transfer-salary-share">
+                                        Quota stipendio a nostro carico (%)
+                                    </label>
+                                    <input id="transfer-salary-share" name="transfer-salary-share" type="number" value="40">
+                                </div>
+                                <div class="field">
+                                    <label for="transfer-end">
+                                        Fine eventuale prestito
+                                    </label>
+                                    <input id="transfer-end" name="transfer-end" type="date" value="2027-06-30">
+                                </div>
+                            </div>
+                            <p class="note">
+                                Puoi provare i campi. Le modifiche non vengono salvate.
+                            </p>
+                            <div class="actions">
+                                <button class="button" type="button" disabled>
+                                    Invia proposta · non attivo
+                                </button>
+                            </div>
+                        </fieldset>
+                    </section>
+                </main>
+                <footer class="footer">
+                    <span>
+                        FOOTBALL MANAGER / LA TUA SOCIETÀ
+                    </span>
+                    <span>
+                        ANTEPRIMA · DATI DIMOSTRATIVI
+                    </span>
+                </footer>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#111813">
+        <title>
+            Staff · Football Manager
+        </title>
+        <link rel="stylesheet" href="../static/css/dashboard.css">
+    </head>
+    <body>
+        <!-- Anteprima statica autonoma: dati fittizi, nessuna connessione al database.
+         I collegamenti relativi consentono la navigazione aprendo i file nel browser.
+         Campi con id/name pronti per il successivo collegamento da parte dell'utente.
+         Non ci sono invii, azioni server, script o salvataggi. -->
+        <a class="skip-link" href="#main">
+            Vai al contenuto
+        </a>
+        <div class="app">
+            <aside class="sidebar">
+                <a class="brand" href="dashboard.html" aria-label="Football Manager, panoramica">
+                    <span class="brand-mark">
+                        fm↗
+                    </span>
+                    <span>
+                        FOOTBALL
+                        <br>
+                        MANAGER
+                    </span>
+                </a>
+                <div class="club-mini">
+                    <span class="crest" aria-hidden="true">
+                        AF
+                    </span>
+                    <div>
+                        <strong>
+                            Aurora FC
+                        </strong>
+                        <small>
+                            Il tuo club · esempio
+                        </small>
+                    </div>
+                </div>
+                <nav aria-label="Gestione del club">
+                    <div class="nav-group">
+                        <p class="nav-label">
+                            La tua scrivania
+                        </p>
+                        <ul>
+                            <li>
+                                <a class="nav-link" href="dashboard.html">
+                                    <span aria-hidden="true">
+                                        01
+                                    </span>
+                                    Panoramica
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="profile.html">
+                                    <span aria-hidden="true">
+                                        02
+                                    </span>
+                                    Profilo manager
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="inbox.html">
+                                    <span aria-hidden="true">
+                                        03
+                                    </span>
+                                    Comunicazioni
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="nav-group">
+                        <p class="nav-label">
+                            Società
+                        </p>
+                        <ul>
+                            <li>
+                                <a class="nav-link" href="club.html">
+                                    <span aria-hidden="true">
+                                        01
+                                    </span>
+                                    Identità del club
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="board.html">
+                                    <span aria-hidden="true">
+                                        02
+                                    </span>
+                                    Dirigenza e obiettivi
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="facilities.html">
+                                    <span aria-hidden="true">
+                                        03
+                                    </span>
+                                    Strutture
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="staff.html" aria-current="page">
+                                    <span aria-hidden="true">
+                                        04
+                                    </span>
+                                    Staff
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="academy.html">
+                                    <span aria-hidden="true">
+                                        05
+                                    </span>
+                                    Settore giovanile
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="nav-group">
+                        <p class="nav-label">
+                            Amministrazione
+                        </p>
+                        <ul>
+                            <li>
+                                <a class="nav-link" href="finances.html">
+                                    <span aria-hidden="true">
+                                        01
+                                    </span>
+                                    Finanze
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="contracts.html">
+                                    <span aria-hidden="true">
+                                        02
+                                    </span>
+                                    Contratti del club
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="player-contracts.html">
+                                    <span aria-hidden="true">
+                                        03
+                                    </span>
+                                    Contratti giocatori
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="sponsors.html">
+                                    <span aria-hidden="true">
+                                        04
+                                    </span>
+                                    Sponsor
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="transfers.html">
+                                    <span aria-hidden="true">
+                                        05
+                                    </span>
+                                    Mercato e prestiti
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="fans.html">
+                                    <span aria-hidden="true">
+                                        06
+                                    </span>
+                                    Tifosi e ricavi
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="settings.html">
+                                    <span aria-hidden="true">
+                                        07
+                                    </span>
+                                    Impostazioni
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <p class="sidebar-note">
+                    PASSIONE. VISIONE. IDENTITÀ.
+                    <br>
+                    Il gioco è nelle tue mani.
+                </p>
+            </aside>
+            <div class="workspace">
+                <header class="topbar">
+                    <p>
+                        UFFICIO DEL MANAGER
+                        <span aria-hidden="true">
+                            /
+                        </span>
+                        Staff
+                    </p>
+                    <div class="account">
+                        <span>
+                            2026/27 · 30 settembre
+                        </span>
+                        <a href="inbox.html" aria-label="Comunicazioni, 3 da leggere">
+                            Posta
+                            <span class="badge">
+                                3
+                            </span>
+                        </a>
+                        <a href="profile.html" aria-label="Profilo di Andrea Rossi">
+                            <span class="avatar" aria-hidden="true">
+                                AR
+                            </span>
+                        </a>
+                    </div>
+                </header>
+                <main id="main" tabindex="-1">
+                    <p class="preview">
+                        Anteprima statica · Club, persone e importi fittizi. I campi sono dimostrativi; salvataggi e operazioni non sono attivi.
+                    </p>
+                    <div class="page-heading">
+                        <div>
+                            <p class="eyebrow">
+                                Gestione del club / Staff
+                            </p>
+                            <h1>
+                                Le persone dietro il progetto.
+                            </h1>
+                            <p class="intro">
+                                Organizzazione, incarichi e contratti del personale della società.
+                            </p>
+                        </div>
+                    </div>
+                    <section class="stats" aria-label="Indicatori principali">
+                        <article class="stat">
+                            <p>
+                                Persone nello staff
+                            </p>
+                            <strong>
+                                12
+                            </strong>
+                            <small>
+                                Organico dimostrativo
+                            </small>
+                        </article>
+                        <article class="stat">
+                            <p>
+                                Costo annuo
+                            </p>
+                            <strong>
+                                € 1,2 mln
+                            </strong>
+                            <small>
+                                € 100.000 al mese
+                            </small>
+                        </article>
+                        <article class="stat">
+                            <p>
+                                Posizioni aperte
+                            </p>
+                            <strong>
+                                1
+                            </strong>
+                            <small>
+                                Responsabile commerciale
+                            </small>
+                        </article>
+                        <article class="stat">
+                            <p>
+                                Rinnovi urgenti
+                            </p>
+                            <strong>
+                                0
+                            </strong>
+                            <small>
+                                Nello scenario di esempio
+                            </small>
+                        </article>
+                    </section>
+                    <section class="panel">
+                        <h2>
+                            Organizzazione e contratti
+                        </h2>
+                        <div class="table-wrap" tabindex="0" role="region" aria-label="Estratto di 4 incarichi su 12 · nomi fittizi">
+                            <table>
+                                <caption>
+                                    Estratto di 4 incarichi su 12 · nomi fittizi
+                                </caption>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">
+                                            Persona
+                                        </th>
+                                        <th scope="col">
+                                            Incarico
+                                        </th>
+                                        <th scope="col">
+                                            Costo annuo
+                                        </th>
+                                        <th scope="col">
+                                            Scadenza
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">
+                                            Elena Conti
+                                        </th>
+                                        <td>
+                                            Direttrice generale
+                                        </td>
+                                        <td>
+                                            € 180.000
+                                        </td>
+                                        <td>
+                                            30/06/2028
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            Paolo Riva
+                                        </th>
+                                        <td>
+                                            Direttore sportivo
+                                        </td>
+                                        <td>
+                                            € 160.000
+                                        </td>
+                                        <td>
+                                            30/06/2028
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            Sara Moretti
+                                        </th>
+                                        <td>
+                                            Responsabile amministrativo
+                                        </td>
+                                        <td>
+                                            € 90.000
+                                        </td>
+                                        <td>
+                                            30/06/2028
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            Giorgio Fontana
+                                        </th>
+                                        <td>
+                                            Responsabile strutture
+                                        </td>
+                                        <td>
+                                            € 70.000
+                                        </td>
+                                        <td>
+                                            30/06/2029
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                    <div class="grid">
+                        <section class="panel">
+                            <h2>
+                                Posizione aperta
+                            </h2>
+                            <p class="eyebrow">
+                                Area commerciale
+                            </p>
+                            <h3>
+                                Responsabile commerciale
+                            </h3>
+                            <p class="muted">
+                                Gestione partner, nuove sponsorizzazioni e sviluppo dei ricavi.
+                            </p>
+                            <dl class="facts">
+                                <div>
+                                    <dt>
+                                        Budget annuo previsto
+                                    </dt>
+                                    <dd>
+                                        € 80.000
+                                    </dd>
+                                </div>
+                                <div>
+                                    <dt>
+                                        Durata proposta
+                                    </dt>
+                                    <dd>
+                                        2 anni
+                                    </dd>
+                                </div>
+                                <div>
+                                    <dt>
+                                        Stato
+                                    </dt>
+                                    <dd>
+                                        Ricerca da avviare
+                                    </dd>
+                                </div>
+                            </dl>
+                            <p class="note">
+                                La posizione aperta non è inclusa nel costo dello staff attuale.
+                            </p>
+                        </section>
+                        <section class="panel">
+                            <h2>
+                                Responsabilità
+                            </h2>
+                            <ul class="list">
+                                <li>
+                                    <div>
+                                        <strong>
+                                            Direzione generale
+                                        </strong>
+                                        <small>
+                                            Coordina le attività della società
+                                        </small>
+                                    </div>
+                                    <div>
+                                        <span class="badge">
+                                            Direzione
+                                        </span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <strong>
+                                            Amministrazione
+                                        </strong>
+                                        <small>
+                                            Controlla conti e pagamenti
+                                        </small>
+                                    </div>
+                                    <div>
+                                        <span class="badge">
+                                            Finanze
+                                        </span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <strong>
+                                            Strutture
+                                        </strong>
+                                        <small>
+                                            Segue impianti e fornitori
+                                        </small>
+                                    </div>
+                                    <div>
+                                        <span class="badge">
+                                            Patrimonio
+                                        </span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </section>
+                    </div>
+                    <section class="panel">
+                        <h2>
+                            Nuovo incarico
+                        </h2>
+                        <fieldset>
+                            <legend>
+                                Bozza di contratto staff
+                            </legend>
+                            <div class="fields">
+                                <div class="field">
+                                    <label for="staff-name">
+                                        Nome e cognome
+                                    </label>
+                                    <input id="staff-name" name="staff-name" type="text" value="">
+                                </div>
+                                <div class="field">
+                                    <label for="staff-role">
+                                        Incarico
+                                    </label>
+                                    <input id="staff-role" name="staff-role" type="text" value="Responsabile commerciale">
+                                </div>
+                                <div class="field">
+                                    <label for="staff-salary">
+                                        Costo lordo annuo (€)
+                                    </label>
+                                    <input id="staff-salary" name="staff-salary" type="number" value="80000">
+                                </div>
+                                <div class="field">
+                                    <label for="staff-end">
+                                        Scadenza
+                                    </label>
+                                    <input id="staff-end" name="staff-end" type="date" value="2028-06-30">
+                                </div>
+                            </div>
+                            <p class="note">
+                                Puoi provare i campi. Le modifiche non vengono salvate.
+                            </p>
+                            <div class="actions">
+                                <button class="button" type="button" disabled>
+                                    Proponi incarico · non attivo
+                                </button>
+                            </div>
+                        </fieldset>
+                    </section>
+                </main>
+                <footer class="footer">
+                    <span>
+                        FOOTBALL MANAGER / LA TUA SOCIETÀ
+                    </span>
+                    <span>
+                        ANTEPRIMA · DATI DIMOSTRATIVI
+                    </span>
+                </footer>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#111813">
+        <title>
+            Tifosi e ricavi · Football Manager
+        </title>
+        <link rel="stylesheet" href="../static/css/dashboard.css">
+    </head>
+    <body>
+        <!-- Anteprima statica autonoma: dati fittizi, nessuna connessione al database.
+         I collegamenti relativi consentono la navigazione aprendo i file nel browser.
+         Campi con id/name pronti per il successivo collegamento da parte dell'utente.
+         Non ci sono invii, azioni server, script o salvataggi. -->
+        <a class="skip-link" href="#main">
+            Vai al contenuto
+        </a>
+        <div class="app">
+            <aside class="sidebar">
+                <a class="brand" href="dashboard.html" aria-label="Football Manager, panoramica">
+                    <span class="brand-mark">
+                        fm↗
+                    </span>
+                    <span>
+                        FOOTBALL
+                        <br>
+                        MANAGER
+                    </span>
+                </a>
+                <div class="club-mini">
+                    <span class="crest" aria-hidden="true">
+                        AF
+                    </span>
+                    <div>
+                        <strong>
+                            Aurora FC
+                        </strong>
+                        <small>
+                            Il tuo club · esempio
+                        </small>
+                    </div>
+                </div>
+                <nav aria-label="Gestione del club">
+                    <div class="nav-group">
+                        <p class="nav-label">
+                            La tua scrivania
+                        </p>
+                        <ul>
+                            <li>
+                                <a class="nav-link" href="dashboard.html">
+                                    <span aria-hidden="true">
+                                        01
+                                    </span>
+                                    Panoramica
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="profile.html">
+                                    <span aria-hidden="true">
+                                        02
+                                    </span>
+                                    Profilo manager
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="inbox.html">
+                                    <span aria-hidden="true">
+                                        03
+                                    </span>
+                                    Comunicazioni
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="nav-group">
+                        <p class="nav-label">
+                            Società
+                        </p>
+                        <ul>
+                            <li>
+                                <a class="nav-link" href="club.html">
+                                    <span aria-hidden="true">
+                                        01
+                                    </span>
+                                    Identità del club
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="board.html">
+                                    <span aria-hidden="true">
+                                        02
+                                    </span>
+                                    Dirigenza e obiettivi
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="facilities.html">
+                                    <span aria-hidden="true">
+                                        03
+                                    </span>
+                                    Strutture
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="staff.html">
+                                    <span aria-hidden="true">
+                                        04
+                                    </span>
+                                    Staff
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="academy.html">
+                                    <span aria-hidden="true">
+                                        05
+                                    </span>
+                                    Settore giovanile
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="nav-group">
+                        <p class="nav-label">
+                            Amministrazione
+                        </p>
+                        <ul>
+                            <li>
+                                <a class="nav-link" href="finances.html">
+                                    <span aria-hidden="true">
+                                        01
+                                    </span>
+                                    Finanze
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="contracts.html">
+                                    <span aria-hidden="true">
+                                        02
+                                    </span>
+                                    Contratti del club
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="player-contracts.html">
+                                    <span aria-hidden="true">
+                                        03
+                                    </span>
+                                    Contratti giocatori
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="sponsors.html">
+                                    <span aria-hidden="true">
+                                        04
+                                    </span>
+                                    Sponsor
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="transfers.html">
+                                    <span aria-hidden="true">
+                                        05
+                                    </span>
+                                    Mercato e prestiti
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="fans.html" aria-current="page">
+                                    <span aria-hidden="true">
+                                        06
+                                    </span>
+                                    Tifosi e ricavi
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="settings.html">
+                                    <span aria-hidden="true">
+                                        07
+                                    </span>
+                                    Impostazioni
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <p class="sidebar-note">
+                    PASSIONE. VISIONE. IDENTITÀ.
+                    <br>
+                    Il gioco è nelle tue mani.
+                </p>
+            </aside>
+            <div class="workspace">
+                <header class="topbar">
+                    <p>
+                        UFFICIO DEL MANAGER
+                        <span aria-hidden="true">
+                            /
+                        </span>
+                        Tifosi e ricavi
+                    </p>
+                    <div class="account">
+                        <span>
+                            2026/27 · 30 settembre
+                        </span>
+                        <a href="inbox.html" aria-label="Comunicazioni, 3 da leggere">
+                            Posta
+                            <span class="badge">
+                                3
+                            </span>
+                        </a>
+                        <a href="profile.html" aria-label="Profilo di Andrea Rossi">
+                            <span class="avatar" aria-hidden="true">
+                                AR
+                            </span>
+                        </a>
+                    </div>
+                </header>
+                <main id="main" tabindex="-1">
+                    <p class="preview">
+                        Anteprima statica · Club, persone e importi fittizi. I campi sono dimostrativi; salvataggi e operazioni non sono attivi.
+                    </p>
+                    <div class="page-heading">
+                        <div>
+                            <p class="eyebrow">
+                                Gestione del club / Tifosi e ricavi
+                            </p>
+                            <h1>
+                                Il club vive insieme alla città.
+                            </h1>
+                            <p class="intro">
+                                Abbonamenti, prezzi, merchandising e relazioni con i sostenitori.
+                            </p>
+                        </div>
+                    </div>
+                    <section class="stats" aria-label="Indicatori principali">
+                        <article class="stat">
+                            <p>
+                                Abbonati
+                            </p>
+                            <strong>
+                                8.200
+                            </strong>
+                            <small>
+                                Scenario dimostrativo
+                            </small>
+                        </article>
+                        <article class="stat">
+                            <p>
+                                Capienza stadio
+                            </p>
+                            <strong>
+                                18.500
+                            </strong>
+                            <small>
+                                Posti complessivi
+                            </small>
+                        </article>
+                        <article class="stat">
+                            <p>
+                                Soddisfazione
+                            </p>
+                            <strong>
+                                78 / 100
+                            </strong>
+                            <small>
+                                Indicatore di esempio
+                            </small>
+                        </article>
+                        <article class="stat">
+                            <p>
+                                Ricavi commerciali mese
+                            </p>
+                            <strong>
+                                € 230 mila
+                            </strong>
+                            <small>
+                                Negozio € 80 mila · ospitalità € 150 mila
+                            </small>
+                        </article>
+                    </section>
+                    <section class="panel">
+                        <h2>
+                            Listino del club
+                        </h2>
+                        <div class="table-wrap" tabindex="0" role="region" aria-label="Prezzi dimostrativi · nessuna vendita attiva">
+                            <table>
+                                <caption>
+                                    Prezzi dimostrativi · nessuna vendita attiva
+                                </caption>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">
+                                            Settore
+                                        </th>
+                                        <th scope="col">
+                                            Posti
+                                        </th>
+                                        <th scope="col">
+                                            Biglietto base
+                                        </th>
+                                        <th scope="col">
+                                            Abbonamento
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">
+                                            Curva
+                                        </th>
+                                        <td>
+                                            6.000
+                                        </td>
+                                        <td>
+                                            € 18
+                                        </td>
+                                        <td>
+                                            € 220
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            Distinti
+                                        </th>
+                                        <td>
+                                            7.000
+                                        </td>
+                                        <td>
+                                            € 30
+                                        </td>
+                                        <td>
+                                            € 380
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            Tribuna
+                                        </th>
+                                        <td>
+                                            5.000
+                                        </td>
+                                        <td>
+                                            € 50
+                                        </td>
+                                        <td>
+                                            € 650
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            Ospitalità
+                                        </th>
+                                        <td>
+                                            500
+                                        </td>
+                                        <td>
+                                            € 120
+                                        </td>
+                                        <td>
+                                            € 1.600
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                    <div class="grid">
+                        <section class="panel">
+                            <h2>
+                                Negozio e ospitalità
+                            </h2>
+                            <dl class="facts">
+                                <div>
+                                    <dt>
+                                        Ricavi negozio · settembre
+                                    </dt>
+                                    <dd>
+                                        € 80.000
+                                    </dd>
+                                </div>
+                                <div>
+                                    <dt>
+                                        Ricavi ospitalità · settembre
+                                    </dt>
+                                    <dd>
+                                        € 150.000
+                                    </dd>
+                                </div>
+                                <div>
+                                    <dt>
+                                        Maglia ufficiale · prezzo
+                                    </dt>
+                                    <dd>
+                                        € 65
+                                    </dd>
+                                </div>
+                                <div>
+                                    <dt>
+                                        Sciarpa · prezzo
+                                    </dt>
+                                    <dd>
+                                        € 18
+                                    </dd>
+                                </div>
+                                <div>
+                                    <dt>
+                                        Punti vendita
+                                    </dt>
+                                    <dd>
+                                        1
+                                    </dd>
+                                </div>
+                            </dl>
+                            <a href="finances.html">
+                                Vedi conto economico →
+                            </a>
+                        </section>
+                        <section class="panel">
+                            <h2>
+                                Rapporto con la città
+                            </h2>
+                            <div class="meter-row">
+                                <label for="fan-trust">
+                                    <span>
+                                        Soddisfazione sostenitori
+                                    </span>
+                                    <span>
+                                        78%
+                                    </span>
+                                </label>
+                                <meter id="fan-trust" min="0" max="100" value="78">
+                                    78 / 100
+                                </meter>
+                            </div>
+                            <ul class="list">
+                                <li>
+                                    <div>
+                                        <strong>
+                                            Club aperto
+                                        </strong>
+                                        <small>
+                                            Incontro con i sostenitori · 10 ottobre
+                                        </small>
+                                    </div>
+                                    <div>
+                                        <span class="badge">
+                                            In programma
+                                        </span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <strong>
+                                            Progetto scuole
+                                        </strong>
+                                        <small>
+                                            Due istituti coinvolti
+                                        </small>
+                                    </div>
+                                    <div>
+                                        <span class="badge">
+                                            Attivo
+                                        </span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </section>
+                    </div>
+                    <section class="panel">
+                        <h2>
+                            Politica dei prezzi
+                        </h2>
+                        <fieldset>
+                            <legend>
+                                Bozza di listino
+                            </legend>
+                            <div class="fields">
+                                <div class="field">
+                                    <label for="ticket-sector">
+                                        Settore
+                                    </label>
+                                    <select id="ticket-sector" name="ticket-sector">
+                                        <option>
+                                            Curva
+                                        </option>
+                                        <option>
+                                            Distinti
+                                        </option>
+                                        <option>
+                                            Tribuna
+                                        </option>
+                                        <option>
+                                            Ospitalità
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="field">
+                                    <label for="ticket-price">
+                                        Biglietto base (€)
+                                    </label>
+                                    <input id="ticket-price" name="ticket-price" type="number" value="18">
+                                </div>
+                                <div class="field">
+                                    <label for="season-ticket-price">
+                                        Abbonamento (€)
+                                    </label>
+                                    <input id="season-ticket-price" name="season-ticket-price" type="number" value="220">
+                                </div>
+                                <div class="field">
+                                    <label for="youth-discount">
+                                        Riduzione under 16 (%)
+                                    </label>
+                                    <input id="youth-discount" name="youth-discount" type="number" value="20">
+                                </div>
+                            </div>
+                            <p class="note">
+                                Puoi provare i campi. Le modifiche non vengono salvate.
+                            </p>
+                            <div class="actions">
+                                <button class="button" type="button" disabled>
+                                    Aggiorna listino · non attivo
+                                </button>
+                            </div>
+                        </fieldset>
+                    </section>
+                </main>
+                <footer class="footer">
+                    <span>
+                        FOOTBALL MANAGER / LA TUA SOCIETÀ
+                    </span>
+                    <span>
+                        ANTEPRIMA · DATI DIMOSTRATIVI
+                    </span>
+                </footer>
+            </div>
+        </div>
+    </body>
+</html>

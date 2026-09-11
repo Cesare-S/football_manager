@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#111813">
+        <title>
+            Profilo manager · Football Manager
+        </title>
+        <link rel="stylesheet" href="../static/css/dashboard.css">
+    </head>
+    <body>
+        <!-- Anteprima statica autonoma: dati fittizi, nessuna connessione al database.
+         I collegamenti relativi consentono la navigazione aprendo i file nel browser.
+         Campi con id/name pronti per il successivo collegamento da parte dell'utente.
+         Non ci sono invii, azioni server, script o salvataggi. -->
+        <a class="skip-link" href="#main">
+            Vai al contenuto
+        </a>
+        <div class="app">
+            <aside class="sidebar">
+                <a class="brand" href="dashboard.html" aria-label="Football Manager, panoramica">
+                    <span class="brand-mark">
+                        fm↗
+                    </span>
+                    <span>
+                        FOOTBALL
+                        <br>
+                        MANAGER
+                    </span>
+                </a>
+                <div class="club-mini">
+                    <span class="crest" aria-hidden="true">
+                        AF
+                    </span>
+                    <div>
+                        <strong>
+                            Aurora FC
+                        </strong>
+                        <small>
+                            Il tuo club · esempio
+                        </small>
+                    </div>
+                </div>
+                <nav aria-label="Gestione del club">
+                    <div class="nav-group">
+                        <p class="nav-label">
+                            La tua scrivania
+                        </p>
+                        <ul>
+                            <li>
+                                <a class="nav-link" href="dashboard.html">
+                                    <span aria-hidden="true">
+                                        01
+                                    </span>
+                                    Panoramica
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="profile.html" aria-current="page">
+                                    <span aria-hidden="true">
+                                        02
+                                    </span>
+                                    Profilo manager
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="inbox.html">
+                                    <span aria-hidden="true">
+                                        03
+                                    </span>
+                                    Comunicazioni
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="nav-group">
+                        <p class="nav-label">
+                            Società
+                        </p>
+                        <ul>
+                            <li>
+                                <a class="nav-link" href="club.html">
+                                    <span aria-hidden="true">
+                                        01
+                                    </span>
+                                    Identità del club
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="board.html">
+                                    <span aria-hidden="true">
+                                        02
+                                    </span>
+                                    Dirigenza e obiettivi
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="facilities.html">
+                                    <span aria-hidden="true">
+                                        03
+                                    </span>
+                                    Strutture
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="staff.html">
+                                    <span aria-hidden="true">
+                                        04
+                                    </span>
+                                    Staff
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="academy.html">
+                                    <span aria-hidden="true">
+                                        05
+                                    </span>
+                                    Settore giovanile
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="nav-group">
+                        <p class="nav-label">
+                            Amministrazione
+                        </p>
+                        <ul>
+                            <li>
+                                <a class="nav-link" href="finances.html">
+                                    <span aria-hidden="true">
+                                        01
+                                    </span>
+                                    Finanze
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="contracts.html">
+                                    <span aria-hidden="true">
+                                        02
+                                    </span>
+                                    Contratti del club
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="player-contracts.html">
+                                    <span aria-hidden="true">
+                                        03
+                                    </span>
+                                    Contratti giocatori
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="sponsors.html">
+                                    <span aria-hidden="true">
+                                        04
+                                    </span>
+                                    Sponsor
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="transfers.html">
+                                    <span aria-hidden="true">
+                                        05
+                                    </span>
+                                    Mercato e prestiti
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="fans.html">
+                                    <span aria-hidden="true">
+                                        06
+                                    </span>
+                                    Tifosi e ricavi
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="settings.html">
+                                    <span aria-hidden="true">
+                                        07
+                                    </span>
+                                    Impostazioni
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <p class="sidebar-note">
+                    PASSIONE. VISIONE. IDENTITÀ.
+                    <br>
+                    Il gioco è nelle tue mani.
+                </p>
+            </aside>
+            <div class="workspace">
+                <header class="topbar">
+                    <p>
+                        UFFICIO DEL MANAGER
+                        <span aria-hidden="true">
+                            /
+                        </span>
+                        Profilo manager
+                    </p>
+                    <div class="account">
+                        <span>
+                            2026/27 · 30 settembre
+                        </span>
+                        <a href="inbox.html" aria-label="Comunicazioni, 3 da leggere">
+                            Posta
+                            <span class="badge">
+                                3
+                            </span>
+                        </a>
+                        <a href="profile.html" aria-label="Profilo di Andrea Rossi">
+                            <span class="avatar" aria-hidden="true">
+                                AR
+                            </span>
+                        </a>
+                    </div>
+                </header>
+                <main id="main" tabindex="-1">
+                    <p class="preview">
+                        Anteprima statica · Club, persone e importi fittizi. I campi sono dimostrativi; salvataggi e operazioni non sono attivi.
+                    </p>
+                    <div class="page-heading">
+                        <div>
+                            <p class="eyebrow">
+                                Gestione del club / Profilo manager
+                            </p>
+                            <h1>
+                                La tua identità.
+                            </h1>
+                            <p class="intro">
+                                I tuoi dati personali e il rapporto con la società.
+                            </p>
+                        </div>
+                    </div>
+                    <section class="stats" aria-label="Indicatori principali">
+                        <article class="stat">
+                            <p>
+                                Manager
+                            </p>
+                            <strong>
+                                Andrea Rossi
+                            </strong>
+                            <small>
+                                Profilo di esempio
+                            </small>
+                        </article>
+                        <article class="stat">
+                            <p>
+                                Club associato
+                            </p>
+                            <strong>
+                                Aurora FC
+                            </strong>
+                            <small>
+                                Carriera dimostrativa
+                            </small>
+                        </article>
+                        <article class="stat">
+                            <p>
+                                Saldo personale
+                            </p>
+                            <strong>
+                                € 40 mln
+                            </strong>
+                            <small>
+                                Separato dalla cassa del club
+                            </small>
+                        </article>
+                        <article class="stat">
+                            <p>
+                                Carica
+                            </p>
+                            <strong>
+                                Proprietario
+                            </strong>
+                            <small>
+                                Dal 1° luglio 2026
+                            </small>
+                        </article>
+                    </section>
+                    <div class="grid">
+                        <section class="panel">
+                            <h2>
+                                Dati personali
+                            </h2>
+                            <fieldset>
+                                <legend>
+                                    Informazioni del manager
+                                </legend>
+                                <div class="fields">
+                                    <div class="field">
+                                        <label for="manager-name">
+                                            Nome completo
+                                        </label>
+                                        <input id="manager-name" name="manager-name" type="text" value="Andrea Rossi">
+                                    </div>
+                                    <div class="field">
+                                        <label for="manager-email">
+                                            Email
+                                        </label>
+                                        <input id="manager-email" name="manager-email" type="email" value="andrea@example.com">
+                                    </div>
+                                    <div class="field">
+                                        <label for="manager-language">
+                                            Lingua
+                                        </label>
+                                        <select id="manager-language" name="manager-language">
+                                            <option>
+                                                Italiano
+                                            </option>
+                                            <option>
+                                                English
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="field">
+                                        <label for="manager-country">
+                                            Paese
+                                        </label>
+                                        <input id="manager-country" name="manager-country" type="text" value="Italia">
+                                    </div>
+                                </div>
+                                <p class="note">
+                                    Puoi provare i campi. Le modifiche non vengono salvate.
+                                </p>
+                                <div class="actions">
+                                    <button class="button" type="button" disabled>
+                                        Salva modifiche · non attivo
+                                    </button>
+                                </div>
+                            </fieldset>
+                        </section>
+                        <section class="panel">
+                            <h2>
+                                La tua carriera
+                            </h2>
+                            <dl class="facts">
+                                <div>
+                                    <dt>
+                                        Club
+                                    </dt>
+                                    <dd>
+                                        Aurora FC
+                                    </dd>
+                                </div>
+                                <div>
+                                    <dt>
+                                        Stagione di gioco
+                                    </dt>
+                                    <dd>
+                                        2026/27
+                                    </dd>
+                                </div>
+                                <div>
+                                    <dt>
+                                        Inizio incarico
+                                    </dt>
+                                    <dd>
+                                        1° luglio 2026
+                                    </dd>
+                                </div>
+                                <div>
+                                    <dt>
+                                        Budget personale
+                                    </dt>
+                                    <dd>
+                                        € 40.000.000
+                                    </dd>
+                                </div>
+                                <div>
+                                    <dt>
+                                        Cassa della società
+                                    </dt>
+                                    <dd>
+                                        € 12.400.000
+                                    </dd>
+                                </div>
+                            </dl>
+                            <p class="note">
+                                Il saldo del manager e quello della società rappresentano due disponibilità diverse.
+                            </p>
+                            <a href="club.html">
+                                Scheda del club →
+                            </a>
+                        </section>
+                    </div>
+                    <section class="panel">
+                        <h2>
+                            Sicurezza dell’account
+                        </h2>
+                        <fieldset>
+                            <legend>
+                                Cambio password
+                            </legend>
+                            <div class="fields">
+                                <div class="field">
+                                    <label for="current-password">
+                                        Password attuale
+                                    </label>
+                                    <input id="current-password" name="current-password" type="password" value="">
+                                </div>
+                                <div class="field">
+                                    <label for="new-password">
+                                        Nuova password
+                                    </label>
+                                    <input id="new-password" name="new-password" type="password" value="">
+                                </div>
+                            </div>
+                            <p class="note">
+                                Puoi provare i campi. Le modifiche non vengono salvate.
+                            </p>
+                            <div class="actions">
+                                <button class="button" type="button" disabled>
+                                    Aggiorna password · non attivo
+                                </button>
+                            </div>
+                        </fieldset>
+                    </section>
+                </main>
+                <footer class="footer">
+                    <span>
+                        FOOTBALL MANAGER / LA TUA SOCIETÀ
+                    </span>
+                    <span>
+                        ANTEPRIMA · DATI DIMOSTRATIVI
+                    </span>
+                </footer>
+            </div>
+        </div>
+    </body>
+</html>

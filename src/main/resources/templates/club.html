@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#111813">
+        <title>
+            Identità del club · Football Manager
+        </title>
+        <link rel="stylesheet" href="../static/css/dashboard.css">
+    </head>
+    <body>
+        <!-- Anteprima statica autonoma: dati fittizi, nessuna connessione al database.
+         I collegamenti relativi consentono la navigazione aprendo i file nel browser.
+         Campi con id/name pronti per il successivo collegamento da parte dell'utente.
+         Non ci sono invii, azioni server, script o salvataggi. -->
+        <a class="skip-link" href="#main">
+            Vai al contenuto
+        </a>
+        <div class="app">
+            <aside class="sidebar">
+                <a class="brand" href="dashboard.html" aria-label="Football Manager, panoramica">
+                    <span class="brand-mark">
+                        fm↗
+                    </span>
+                    <span>
+                        FOOTBALL
+                        <br>
+                        MANAGER
+                    </span>
+                </a>
+                <div class="club-mini">
+                    <span class="crest" aria-hidden="true">
+                        AF
+                    </span>
+                    <div>
+                        <strong>
+                            Aurora FC
+                        </strong>
+                        <small>
+                            Il tuo club · esempio
+                        </small>
+                    </div>
+                </div>
+                <nav aria-label="Gestione del club">
+                    <div class="nav-group">
+                        <p class="nav-label">
+                            La tua scrivania
+                        </p>
+                        <ul>
+                            <li>
+                                <a class="nav-link" href="dashboard.html">
+                                    <span aria-hidden="true">
+                                        01
+                                    </span>
+                                    Panoramica
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="profile.html">
+                                    <span aria-hidden="true">
+                                        02
+                                    </span>
+                                    Profilo manager
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="inbox.html">
+                                    <span aria-hidden="true">
+                                        03
+                                    </span>
+                                    Comunicazioni
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="nav-group">
+                        <p class="nav-label">
+                            Società
+                        </p>
+                        <ul>
+                            <li>
+                                <a class="nav-link" href="club.html" aria-current="page">
+                                    <span aria-hidden="true">
+                                        01
+                                    </span>
+                                    Identità del club
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="board.html">
+                                    <span aria-hidden="true">
+                                        02
+                                    </span>
+                                    Dirigenza e obiettivi
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="facilities.html">
+                                    <span aria-hidden="true">
+                                        03
+                                    </span>
+                                    Strutture
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="staff.html">
+                                    <span aria-hidden="true">
+                                        04
+                                    </span>
+                                    Staff
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="academy.html">
+                                    <span aria-hidden="true">
+                                        05
+                                    </span>
+                                    Settore giovanile
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="nav-group">
+                        <p class="nav-label">
+                            Amministrazione
+                        </p>
+                        <ul>
+                            <li>
+                                <a class="nav-link" href="finances.html">
+                                    <span aria-hidden="true">
+                                        01
+                                    </span>
+                                    Finanze
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="contracts.html">
+                                    <span aria-hidden="true">
+                                        02
+                                    </span>
+                                    Contratti del club
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="player-contracts.html">
+                                    <span aria-hidden="true">
+                                        03
+                                    </span>
+                                    Contratti giocatori
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="sponsors.html">
+                                    <span aria-hidden="true">
+                                        04
+                                    </span>
+                                    Sponsor
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="transfers.html">
+                                    <span aria-hidden="true">
+                                        05
+                                    </span>
+                                    Mercato e prestiti
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="fans.html">
+                                    <span aria-hidden="true">
+                                        06
+                                    </span>
+                                    Tifosi e ricavi
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="settings.html">
+                                    <span aria-hidden="true">
+                                        07
+                                    </span>
+                                    Impostazioni
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <p class="sidebar-note">
+                    PASSIONE. VISIONE. IDENTITÀ.
+                    <br>
+                    Il gioco è nelle tue mani.
+                </p>
+            </aside>
+            <div class="workspace">
+                <header class="topbar">
+                    <p>
+                        UFFICIO DEL MANAGER
+                        <span aria-hidden="true">
+                            /
+                        </span>
+                        Identità del club
+                    </p>
+                    <div class="account">
+                        <span>
+                            2026/27 · 30 settembre
+                        </span>
+                        <a href="inbox.html" aria-label="Comunicazioni, 3 da leggere">
+                            Posta
+                            <span class="badge">
+                                3
+                            </span>
+                        </a>
+                        <a href="profile.html" aria-label="Profilo di Andrea Rossi">
+                            <span class="avatar" aria-hidden="true">
+                                AR
+                            </span>
+                        </a>
+                    </div>
+                </header>
+                <main id="main" tabindex="-1">
+                    <p class="preview">
+                        Anteprima statica · Club, persone e importi fittizi. I campi sono dimostrativi; salvataggi e operazioni non sono attivi.
+                    </p>
+                    <div class="page-heading">
+                        <div>
+                            <p class="eyebrow">
+                                Gestione del club / Identità del club
+                            </p>
+                            <h1>
+                                Una città. I tuoi colori.
+                            </h1>
+                            <p class="intro">
+                                Anagrafica della società e informazioni sulla squadra associata.
+                            </p>
+                        </div>
+                    </div>
+                    <section class="panel hero">
+                        <p class="eyebrow">
+                            Società dimostrativa / fondata nel 1924
+                        </p>
+                        <h2>
+                            Aurora Football Club
+                        </h2>
+                        <p>
+                            Valleverde · Italia
+                            <br>
+                            Verde bosco e avorio. Una storia da costruire insieme alla città.
+                        </p>
+                        <span class="badge">
+                            Club fittizio di anteprima
+                        </span>
+                    </section>
+                    <div class="grid">
+                        <section class="panel">
+                            <h2>
+                                Anagrafica del club
+                            </h2>
+                            <fieldset>
+                                <legend>
+                                    Identità
+                                </legend>
+                                <div class="fields">
+                                    <div class="field">
+                                        <label for="club-name">
+                                            Nome del club
+                                        </label>
+                                        <input id="club-name" name="club-name" type="text" value="Aurora FC">
+                                    </div>
+                                    <div class="field">
+                                        <label for="club-city">
+                                            Città
+                                        </label>
+                                        <input id="club-city" name="club-city" type="text" value="Valleverde">
+                                    </div>
+                                    <div class="field">
+                                        <label for="club-founded">
+                                            Anno di fondazione
+                                        </label>
+                                        <input id="club-founded" name="club-founded" type="number" value="1924">
+                                    </div>
+                                    <div class="field">
+                                        <label for="club-colors">
+                                            Colori sociali
+                                        </label>
+                                        <input id="club-colors" name="club-colors" type="text" value="Verde bosco / avorio">
+                                    </div>
+                                    <div class="field">
+                                        <label for="club-stadium">
+                                            Stadio
+                                        </label>
+                                        <input id="club-stadium" name="club-stadium" type="text" value="Parco Aurora">
+                                    </div>
+                                    <div class="field">
+                                        <label for="club-motto">
+                                            Motto
+                                        </label>
+                                        <input id="club-motto" name="club-motto" type="text" value="Crescere insieme">
+                                    </div>
+                                </div>
+                                <p class="note">
+                                    Puoi provare i campi. Le modifiche non vengono salvate.
+                                </p>
+                                <div class="actions">
+                                    <button class="button" type="button" disabled>
+                                        Salva modifiche · non attivo
+                                    </button>
+                                </div>
+                            </fieldset>
+                        </section>
+                        <section class="panel">
+                            <h2>
+                                Squadra associata
+                            </h2>
+                            <dl class="facts">
+                                <div>
+                                    <dt>
+                                        Denominazione
+                                    </dt>
+                                    <dd>
+                                        Aurora FC
+                                    </dd>
+                                </div>
+                                <div>
+                                    <dt>
+                                        Categoria
+                                    </dt>
+                                    <dd>
+                                        Prima squadra
+                                    </dd>
+                                </div>
+                                <div>
+                                    <dt>
+                                        Campionato di esempio
+                                    </dt>
+                                    <dd>
+                                        Serie B
+                                    </dd>
+                                </div>
+                                <div>
+                                    <dt>
+                                        Stagione
+                                    </dt>
+                                    <dd>
+                                        2026/27
+                                    </dd>
+                                </div>
+                                <div>
+                                    <dt>
+                                        Proprietario
+                                    </dt>
+                                    <dd>
+                                        Andrea Rossi
+                                    </dd>
+                                </div>
+                                <div>
+                                    <dt>
+                                        Sede
+                                    </dt>
+                                    <dd>
+                                        Valleverde
+                                    </dd>
+                                </div>
+                            </dl>
+                            <p class="note">
+                                Campionato e sede sono parte dello scenario fittizio di anteprima.
+                            </p>
+                        </section>
+                    </div>
+                    <section class="panel">
+                        <h2>
+                            Aree della società
+                        </h2>
+                        <ul class="list">
+                            <li>
+                                <div>
+                                    <strong>
+                                        Organizzazione
+                                    </strong>
+                                    <small>
+                                        Ruoli, persone e responsabilità
+                                    </small>
+                                </div>
+                                <div>
+                                    <a href="staff.html">
+                                        Staff →
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <strong>
+                                        Patrimonio
+                                    </strong>
+                                    <small>
+                                        Impianti e manutenzioni
+                                    </small>
+                                </div>
+                                <div>
+                                    <a href="facilities.html">
+                                        Strutture →
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <strong>
+                                        Progetto societario
+                                    </strong>
+                                    <small>
+                                        Priorità e richieste della dirigenza
+                                    </small>
+                                </div>
+                                <div>
+                                    <a href="board.html">
+                                        Obiettivi →
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                </main>
+                <footer class="footer">
+                    <span>
+                        FOOTBALL MANAGER / LA TUA SOCIETÀ
+                    </span>
+                    <span>
+                        ANTEPRIMA · DATI DIMOSTRATIVI
+                    </span>
+                </footer>
+            </div>
+        </div>
+    </body>
+</html>

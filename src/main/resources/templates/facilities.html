@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#111813">
+        <title>
+            Strutture · Football Manager
+        </title>
+        <link rel="stylesheet" href="../static/css/dashboard.css">
+    </head>
+    <body>
+        <!-- Anteprima statica autonoma: dati fittizi, nessuna connessione al database.
+         I collegamenti relativi consentono la navigazione aprendo i file nel browser.
+         Campi con id/name pronti per il successivo collegamento da parte dell'utente.
+         Non ci sono invii, azioni server, script o salvataggi. -->
+        <a class="skip-link" href="#main">
+            Vai al contenuto
+        </a>
+        <div class="app">
+            <aside class="sidebar">
+                <a class="brand" href="dashboard.html" aria-label="Football Manager, panoramica">
+                    <span class="brand-mark">
+                        fm↗
+                    </span>
+                    <span>
+                        FOOTBALL
+                        <br>
+                        MANAGER
+                    </span>
+                </a>
+                <div class="club-mini">
+                    <span class="crest" aria-hidden="true">
+                        AF
+                    </span>
+                    <div>
+                        <strong>
+                            Aurora FC
+                        </strong>
+                        <small>
+                            Il tuo club · esempio
+                        </small>
+                    </div>
+                </div>
+                <nav aria-label="Gestione del club">
+                    <div class="nav-group">
+                        <p class="nav-label">
+                            La tua scrivania
+                        </p>
+                        <ul>
+                            <li>
+                                <a class="nav-link" href="dashboard.html">
+                                    <span aria-hidden="true">
+                                        01
+                                    </span>
+                                    Panoramica
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="profile.html">
+                                    <span aria-hidden="true">
+                                        02
+                                    </span>
+                                    Profilo manager
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="inbox.html">
+                                    <span aria-hidden="true">
+                                        03
+                                    </span>
+                                    Comunicazioni
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="nav-group">
+                        <p class="nav-label">
+                            Società
+                        </p>
+                        <ul>
+                            <li>
+                                <a class="nav-link" href="club.html">
+                                    <span aria-hidden="true">
+                                        01
+                                    </span>
+                                    Identità del club
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="board.html">
+                                    <span aria-hidden="true">
+                                        02
+                                    </span>
+                                    Dirigenza e obiettivi
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="facilities.html" aria-current="page">
+                                    <span aria-hidden="true">
+                                        03
+                                    </span>
+                                    Strutture
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="staff.html">
+                                    <span aria-hidden="true">
+                                        04
+                                    </span>
+                                    Staff
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="academy.html">
+                                    <span aria-hidden="true">
+                                        05
+                                    </span>
+                                    Settore giovanile
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="nav-group">
+                        <p class="nav-label">
+                            Amministrazione
+                        </p>
+                        <ul>
+                            <li>
+                                <a class="nav-link" href="finances.html">
+                                    <span aria-hidden="true">
+                                        01
+                                    </span>
+                                    Finanze
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="contracts.html">
+                                    <span aria-hidden="true">
+                                        02
+                                    </span>
+                                    Contratti del club
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="player-contracts.html">
+                                    <span aria-hidden="true">
+                                        03
+                                    </span>
+                                    Contratti giocatori
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="sponsors.html">
+                                    <span aria-hidden="true">
+                                        04
+                                    </span>
+                                    Sponsor
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="transfers.html">
+                                    <span aria-hidden="true">
+                                        05
+                                    </span>
+                                    Mercato e prestiti
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="fans.html">
+                                    <span aria-hidden="true">
+                                        06
+                                    </span>
+                                    Tifosi e ricavi
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="settings.html">
+                                    <span aria-hidden="true">
+                                        07
+                                    </span>
+                                    Impostazioni
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <p class="sidebar-note">
+                    PASSIONE. VISIONE. IDENTITÀ.
+                    <br>
+                    Il gioco è nelle tue mani.
+                </p>
+            </aside>
+            <div class="workspace">
+                <header class="topbar">
+                    <p>
+                        UFFICIO DEL MANAGER
+                        <span aria-hidden="true">
+                            /
+                        </span>
+                        Strutture
+                    </p>
+                    <div class="account">
+                        <span>
+                            2026/27 · 30 settembre
+                        </span>
+                        <a href="inbox.html" aria-label="Comunicazioni, 3 da leggere">
+                            Posta
+                            <span class="badge">
+                                3
+                            </span>
+                        </a>
+                        <a href="profile.html" aria-label="Profilo di Andrea Rossi">
+                            <span class="avatar" aria-hidden="true">
+                                AR
+                            </span>
+                        </a>
+                    </div>
+                </header>
+                <main id="main" tabindex="-1">
+                    <p class="preview">
+                        Anteprima statica · Club, persone e importi fittizi. I campi sono dimostrativi; salvataggi e operazioni non sono attivi.
+                    </p>
+                    <div class="page-heading">
+                        <div>
+                            <p class="eyebrow">
+                                Gestione del club / Strutture
+                            </p>
+                            <h1>
+                                Le fondamenta del progetto.
+                            </h1>
+                            <p class="intro">
+                                Stadio, centro sportivo, uffici e investimenti negli impianti.
+                            </p>
+                        </div>
+                    </div>
+                    <section class="stats" aria-label="Indicatori principali">
+                        <article class="stat">
+                            <p>
+                                Capienza stadio
+                            </p>
+                            <strong>
+                                18.500
+                            </strong>
+                            <small>
+                                Posti nello scenario di esempio
+                            </small>
+                        </article>
+                        <article class="stat">
+                            <p>
+                                Fondo strutture
+                            </p>
+                            <strong>
+                                € 500 mila
+                            </strong>
+                            <small>
+                                Budget annuale
+                            </small>
+                        </article>
+                        <article class="stat">
+                            <p>
+                                Impegni approvati
+                            </p>
+                            <strong>
+                                € 200 mila
+                            </strong>
+                            <small>
+                                40% del fondo
+                            </small>
+                        </article>
+                        <article class="stat">
+                            <p>
+                                Manutenzioni
+                            </p>
+                            <strong>
+                                1 proposta
+                            </strong>
+                            <small>
+                                € 120.000 · da approvare
+                            </small>
+                        </article>
+                    </section>
+                    <div class="cards">
+                        <section class="panel">
+                            <h2>
+                                Stadio Parco Aurora
+                            </h2>
+                            <div class="stadium" aria-hidden="true">
+                                <span>
+                                    AURORA / 1924
+                                </span>
+                            </div>
+                            <dl class="facts">
+                                <div>
+                                    <dt>
+                                        Proprietà
+                                    </dt>
+                                    <dd>
+                                        Del club
+                                    </dd>
+                                </div>
+                                <div>
+                                    <dt>
+                                        Capienza
+                                    </dt>
+                                    <dd>
+                                        18.500 posti
+                                    </dd>
+                                </div>
+                                <div>
+                                    <dt>
+                                        Condizione
+                                    </dt>
+                                    <dd>
+                                        Buona
+                                    </dd>
+                                </div>
+                                <div>
+                                    <dt>
+                                        Manutenzione annua
+                                    </dt>
+                                    <dd>
+                                        € 180.000
+                                    </dd>
+                                </div>
+                            </dl>
+                        </section>
+                        <section class="panel">
+                            <h2>
+                                Centro sportivo
+                            </h2>
+                            <dl class="facts">
+                                <div>
+                                    <dt>
+                                        Nome
+                                    </dt>
+                                    <dd>
+                                        Centro La Quercia
+                                    </dd>
+                                </div>
+                                <div>
+                                    <dt>
+                                        Campi
+                                    </dt>
+                                    <dd>
+                                        3
+                                    </dd>
+                                </div>
+                                <div>
+                                    <dt>
+                                        Spogliatoi
+                                    </dt>
+                                    <dd>
+                                        4
+                                    </dd>
+                                </div>
+                                <div>
+                                    <dt>
+                                        Condizione
+                                    </dt>
+                                    <dd>
+                                        Buona
+                                    </dd>
+                                </div>
+                                <div>
+                                    <dt>
+                                        Manutenzione annua
+                                    </dt>
+                                    <dd>
+                                        € 90.000
+                                    </dd>
+                                </div>
+                            </dl>
+                            <p class="note">
+                                Qui gestisci il patrimonio e i costi dell’impianto.
+                            </p>
+                        </section>
+                        <section class="panel">
+                            <h2>
+                                Sede e servizi
+                            </h2>
+                            <dl class="facts">
+                                <div>
+                                    <dt>
+                                        Uffici
+                                    </dt>
+                                    <dd>
+                                        Sede Valleverde
+                                    </dd>
+                                </div>
+                                <div>
+                                    <dt>
+                                        Centro medico
+                                    </dt>
+                                    <dd>
+                                        Livello 2 / 5
+                                    </dd>
+                                </div>
+                                <div>
+                                    <dt>
+                                        Ospitalità
+                                    </dt>
+                                    <dd>
+                                        8 sale
+                                    </dd>
+                                </div>
+                                <div>
+                                    <dt>
+                                        Negozio ufficiale
+                                    </dt>
+                                    <dd>
+                                        1 punto vendita
+                                    </dd>
+                                </div>
+                                <div>
+                                    <dt>
+                                        Manutenzione annua
+                                    </dt>
+                                    <dd>
+                                        € 50.000
+                                    </dd>
+                                </div>
+                            </dl>
+                        </section>
+                    </div>
+                    <section class="panel">
+                        <h2>
+                            Piano degli interventi
+                        </h2>
+                        <div class="table-wrap" tabindex="0" role="region" aria-label="Investimenti dimostrativi">
+                            <table>
+                                <caption>
+                                    Investimenti dimostrativi
+                                </caption>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">
+                                            Intervento
+                                        </th>
+                                        <th scope="col">
+                                            Costo
+                                        </th>
+                                        <th scope="col">
+                                            Durata stimata
+                                        </th>
+                                        <th scope="col">
+                                            Stato
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">
+                                            Rinnovo centro medico
+                                        </th>
+                                        <td>
+                                            € 200.000
+                                        </td>
+                                        <td>
+                                            8 settimane
+                                        </td>
+                                        <td>
+                                            <span class="badge">
+                                                Approvato
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            Copertura settore est
+                                        </th>
+                                        <td>
+                                            € 120.000
+                                        </td>
+                                        <td>
+                                            4 settimane
+                                        </td>
+                                        <td>
+                                            <span class="badge warn">
+                                                Da approvare
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            Ampliamento negozio
+                                        </th>
+                                        <td>
+                                            € 80.000
+                                        </td>
+                                        <td>
+                                            3 settimane
+                                        </td>
+                                        <td>
+                                            <span class="badge">
+                                                Idea
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                    <section class="panel">
+                        <h2>
+                            Proposta di intervento
+                        </h2>
+                        <fieldset>
+                            <legend>
+                                Dettagli dell’investimento
+                            </legend>
+                            <div class="fields">
+                                <div class="field">
+                                    <label for="facility">
+                                        Struttura
+                                    </label>
+                                    <select id="facility" name="facility">
+                                        <option>
+                                            Stadio
+                                        </option>
+                                        <option>
+                                            Centro sportivo
+                                        </option>
+                                        <option>
+                                            Centro medico
+                                        </option>
+                                        <option>
+                                            Sede
+                                        </option>
+                                        <option>
+                                            Negozio
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="field">
+                                    <label for="work-kind">
+                                        Tipo di intervento
+                                    </label>
+                                    <select id="work-kind" name="work-kind">
+                                        <option>
+                                            Manutenzione
+                                        </option>
+                                        <option>
+                                            Ampliamento
+                                        </option>
+                                        <option>
+                                            Ristrutturazione
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="field">
+                                    <label for="work-cost">
+                                        Costo previsto (€)
+                                    </label>
+                                    <input id="work-cost" name="work-cost" type="number" value="120000">
+                                </div>
+                                <div class="field">
+                                    <label for="work-duration">
+                                        Durata prevista (settimane)
+                                    </label>
+                                    <input id="work-duration" name="work-duration" type="number" value="4">
+                                </div>
+                            </div>
+                            <p class="note">
+                                Puoi provare i campi. Le modifiche non vengono salvate.
+                            </p>
+                            <div class="actions">
+                                <button class="button" type="button" disabled>
+                                    Richiedi approvazione · non attivo
+                                </button>
+                            </div>
+                        </fieldset>
+                    </section>
+                </main>
+                <footer class="footer">
+                    <span>
+                        FOOTBALL MANAGER / LA TUA SOCIETÀ
+                    </span>
+                    <span>
+                        ANTEPRIMA · DATI DIMOSTRATIVI
+                    </span>
+                </footer>
+            </div>
+        </div>
+    </body>
+</html>

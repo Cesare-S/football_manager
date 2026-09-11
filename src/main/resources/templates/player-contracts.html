@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#111813">
+        <title>
+            Contratti giocatori · Football Manager
+        </title>
+        <link rel="stylesheet" href="../static/css/dashboard.css">
+    </head>
+    <body>
+        <!-- Anteprima statica autonoma: dati fittizi, nessuna connessione al database.
+         I collegamenti relativi consentono la navigazione aprendo i file nel browser.
+         Campi con id/name pronti per il successivo collegamento da parte dell'utente.
+         Non ci sono invii, azioni server, script o salvataggi. -->
+        <a class="skip-link" href="#main">
+            Vai al contenuto
+        </a>
+        <div class="app">
+            <aside class="sidebar">
+                <a class="brand" href="dashboard.html" aria-label="Football Manager, panoramica">
+                    <span class="brand-mark">
+                        fm↗
+                    </span>
+                    <span>
+                        FOOTBALL
+                        <br>
+                        MANAGER
+                    </span>
+                </a>
+                <div class="club-mini">
+                    <span class="crest" aria-hidden="true">
+                        AF
+                    </span>
+                    <div>
+                        <strong>
+                            Aurora FC
+                        </strong>
+                        <small>
+                            Il tuo club · esempio
+                        </small>
+                    </div>
+                </div>
+                <nav aria-label="Gestione del club">
+                    <div class="nav-group">
+                        <p class="nav-label">
+                            La tua scrivania
+                        </p>
+                        <ul>
+                            <li>
+                                <a class="nav-link" href="dashboard.html">
+                                    <span aria-hidden="true">
+                                        01
+                                    </span>
+                                    Panoramica
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="profile.html">
+                                    <span aria-hidden="true">
+                                        02
+                                    </span>
+                                    Profilo manager
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="inbox.html">
+                                    <span aria-hidden="true">
+                                        03
+                                    </span>
+                                    Comunicazioni
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="nav-group">
+                        <p class="nav-label">
+                            Società
+                        </p>
+                        <ul>
+                            <li>
+                                <a class="nav-link" href="club.html">
+                                    <span aria-hidden="true">
+                                        01
+                                    </span>
+                                    Identità del club
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="board.html">
+                                    <span aria-hidden="true">
+                                        02
+                                    </span>
+                                    Dirigenza e obiettivi
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="facilities.html">
+                                    <span aria-hidden="true">
+                                        03
+                                    </span>
+                                    Strutture
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="staff.html">
+                                    <span aria-hidden="true">
+                                        04
+                                    </span>
+                                    Staff
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="academy.html">
+                                    <span aria-hidden="true">
+                                        05
+                                    </span>
+                                    Settore giovanile
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="nav-group">
+                        <p class="nav-label">
+                            Amministrazione
+                        </p>
+                        <ul>
+                            <li>
+                                <a class="nav-link" href="finances.html">
+                                    <span aria-hidden="true">
+                                        01
+                                    </span>
+                                    Finanze
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="contracts.html">
+                                    <span aria-hidden="true">
+                                        02
+                                    </span>
+                                    Contratti del club
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="player-contracts.html" aria-current="page">
+                                    <span aria-hidden="true">
+                                        03
+                                    </span>
+                                    Contratti giocatori
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="sponsors.html">
+                                    <span aria-hidden="true">
+                                        04
+                                    </span>
+                                    Sponsor
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="transfers.html">
+                                    <span aria-hidden="true">
+                                        05
+                                    </span>
+                                    Mercato e prestiti
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="fans.html">
+                                    <span aria-hidden="true">
+                                        06
+                                    </span>
+                                    Tifosi e ricavi
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="settings.html">
+                                    <span aria-hidden="true">
+                                        07
+                                    </span>
+                                    Impostazioni
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <p class="sidebar-note">
+                    PASSIONE. VISIONE. IDENTITÀ.
+                    <br>
+                    Il gioco è nelle tue mani.
+                </p>
+            </aside>
+            <div class="workspace">
+                <header class="topbar">
+                    <p>
+                        UFFICIO DEL MANAGER
+                        <span aria-hidden="true">
+                            /
+                        </span>
+                        Contratti giocatori
+                    </p>
+                    <div class="account">
+                        <span>
+                            2026/27 · 30 settembre
+                        </span>
+                        <a href="inbox.html" aria-label="Comunicazioni, 3 da leggere">
+                            Posta
+                            <span class="badge">
+                                3
+                            </span>
+                        </a>
+                        <a href="profile.html" aria-label="Profilo di Andrea Rossi">
+                            <span class="avatar" aria-hidden="true">
+                                AR
+                            </span>
+                        </a>
+                    </div>
+                </header>
+                <main id="main" tabindex="-1">
+                    <p class="preview">
+                        Anteprima statica · Club, persone e importi fittizi. I campi sono dimostrativi; salvataggi e operazioni non sono attivi.
+                    </p>
+                    <div class="page-heading">
+                        <div>
+                            <p class="eyebrow">
+                                Gestione del club / Contratti giocatori
+                            </p>
+                            <h1>
+                                Proteggi il valore del club.
+                            </h1>
+                            <p class="intro">
+                                Accordi economici dei calciatori, rinnovi e obblighi contrattuali.
+                            </p>
+                        </div>
+                    </div>
+                    <section class="stats" aria-label="Indicatori principali">
+                        <article class="stat">
+                            <p>
+                                Contratti
+                            </p>
+                            <strong>
+                                24
+                            </strong>
+                            <small>
+                                Scenario dimostrativo
+                            </small>
+                        </article>
+                        <article class="stat">
+                            <p>
+                                Monte ingaggi annuo
+                            </p>
+                            <strong>
+                                € 6 mln
+                            </strong>
+                            <small>
+                                € 500.000 al mese · senza bonus
+                            </small>
+                        </article>
+                        <article class="stat">
+                            <p>
+                                In scadenza
+                            </p>
+                            <strong>
+                                2
+                            </strong>
+                            <small>
+                                Entro il 30 giugno 2027
+                            </small>
+                        </article>
+                        <article class="stat">
+                            <p>
+                                Bonus potenziali
+                            </p>
+                            <strong>
+                                € 240 mila
+                            </strong>
+                            <small>
+                                Non inclusi negli stipendi fissi
+                            </small>
+                        </article>
+                    </section>
+                    <section class="panel">
+                        <h2>
+                            Scadenze e condizioni
+                        </h2>
+                        <div class="table-wrap" tabindex="0" role="region" aria-label="Estratto di 4 contratti su 24 · calciatori fittizi · stipendi lordi di gioco">
+                            <table>
+                                <caption>
+                                    Estratto di 4 contratti su 24 · calciatori fittizi · stipendi lordi di gioco
+                                </caption>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">
+                                            Calciatore
+                                        </th>
+                                        <th scope="col">
+                                            Stipendio annuo
+                                        </th>
+                                        <th scope="col">
+                                            Scadenza
+                                        </th>
+                                        <th scope="col">
+                                            Clausola di uscita
+                                        </th>
+                                        <th scope="col">
+                                            Stato
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">
+                                            Luca Ferri
+                                        </th>
+                                        <td>
+                                            € 480.000
+                                        </td>
+                                        <td>
+                                            30/06/2027
+                                        </td>
+                                        <td>
+                                            € 3.000.000
+                                        </td>
+                                        <td>
+                                            <a href="#renewal">
+                                                Valuta rinnovo →
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            Marco Serra
+                                        </th>
+                                        <td>
+                                            € 360.000
+                                        </td>
+                                        <td>
+                                            30/06/2027
+                                        </td>
+                                        <td>
+                                            Assente
+                                        </td>
+                                        <td>
+                                            <span class="badge warn">
+                                                In scadenza
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            Davide Costa
+                                        </th>
+                                        <td>
+                                            € 420.000
+                                        </td>
+                                        <td>
+                                            30/06/2028
+                                        </td>
+                                        <td>
+                                            € 2.500.000
+                                        </td>
+                                        <td>
+                                            <span class="badge">
+                                                Attivo
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            Matteo Villa
+                                        </th>
+                                        <td>
+                                            € 300.000
+                                        </td>
+                                        <td>
+                                            30/06/2029
+                                        </td>
+                                        <td>
+                                            Assente
+                                        </td>
+                                        <td>
+                                            <span class="badge">
+                                                Attivo
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                    <div class="grid">
+                        <section class="panel">
+                            <h2>
+                                Scheda contratto · Luca Ferri
+                            </h2>
+                            <dl class="facts">
+                                <div>
+                                    <dt>
+                                        Identificativo
+                                    </dt>
+                                    <dd>
+                                        GIO-001
+                                    </dd>
+                                </div>
+                                <div>
+                                    <dt>
+                                        Decorrenza
+                                    </dt>
+                                    <dd>
+                                        1° luglio 2024
+                                    </dd>
+                                </div>
+                                <div>
+                                    <dt>
+                                        Scadenza
+                                    </dt>
+                                    <dd>
+                                        30 giugno 2027
+                                    </dd>
+                                </div>
+                                <div>
+                                    <dt>
+                                        Stipendio lordo mensile
+                                    </dt>
+                                    <dd>
+                                        € 40.000
+                                    </dd>
+                                </div>
+                                <div>
+                                    <dt>
+                                        Stipendio lordo annuo
+                                    </dt>
+                                    <dd>
+                                        € 480.000
+                                    </dd>
+                                </div>
+                                <div>
+                                    <dt>
+                                        Bonus massimo annuo
+                                    </dt>
+                                    <dd>
+                                        € 20.000
+                                    </dd>
+                                </div>
+                                <div>
+                                    <dt>
+                                        Clausola di uscita
+                                    </dt>
+                                    <dd>
+                                        € 3.000.000
+                                    </dd>
+                                </div>
+                            </dl>
+                            <details>
+                                <summary>
+                                    Bonus e condizioni
+                                </summary>
+                                <div class="detail-body">
+                                    <p>
+                                        Bonus presenza di esempio: € 1.000, fino a € 20.000 annui. Nessuna opzione di rinnovo automatico.
+                                    </p>
+                                </div>
+                            </details>
+                        </section>
+                        <section class="panel">
+                            <h2>
+                                Impatto economico
+                            </h2>
+                            <p>
+                                Gli stipendi fissi dei giocatori impegnano € 6 milioni annui. Lo staff aggiunge € 1,2 milioni: l’impegno fisso complessivo è € 7,2 milioni.
+                            </p>
+                            <p class="note">
+                                I bonus diventano un costo aggiuntivo quando maturano le condizioni previste.
+                            </p>
+                            <a href="finances.html">
+                                Controlla i budget →
+                            </a>
+                        </section>
+                    </div>
+                    <section class="panel" id="renewal">
+                        <h2>
+                            Proposta di rinnovo
+                        </h2>
+                        <fieldset>
+                            <legend>
+                                Bozza economica
+                            </legend>
+                            <div class="fields">
+                                <div class="field">
+                                    <label for="renew-player">
+                                        Calciatore
+                                    </label>
+                                    <select id="renew-player" name="renew-player">
+                                        <option>
+                                            Luca Ferri
+                                        </option>
+                                        <option>
+                                            Marco Serra
+                                        </option>
+                                        <option>
+                                            Davide Costa
+                                        </option>
+                                        <option>
+                                            Matteo Villa
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="field">
+                                    <label for="renew-end">
+                                        Nuova scadenza
+                                    </label>
+                                    <input id="renew-end" name="renew-end" type="date" value="2029-06-30">
+                                </div>
+                                <div class="field">
+                                    <label for="renew-salary">
+                                        Stipendio lordo annuo (€)
+                                    </label>
+                                    <input id="renew-salary" name="renew-salary" type="number" value="500000">
+                                </div>
+                                <div class="field">
+                                    <label for="renew-signing">
+                                        Premio alla firma (€)
+                                    </label>
+                                    <input id="renew-signing" name="renew-signing" type="number" value="25000">
+                                </div>
+                                <div class="field">
+                                    <label for="renew-clause">
+                                        Clausola di uscita (€)
+                                    </label>
+                                    <input id="renew-clause" name="renew-clause" type="number" value="3500000">
+                                </div>
+                                <div class="field">
+                                    <label for="renew-bonus">
+                                        Bonus massimo annuo (€)
+                                    </label>
+                                    <input id="renew-bonus" name="renew-bonus" type="number" value="20000">
+                                </div>
+                            </div>
+                            <p class="note">
+                                Puoi provare i campi. Le modifiche non vengono salvate.
+                            </p>
+                            <div class="actions">
+                                <button class="button" type="button" disabled>
+                                    Invia proposta · non attivo
+                                </button>
+                            </div>
+                        </fieldset>
+                    </section>
+                </main>
+                <footer class="footer">
+                    <span>
+                        FOOTBALL MANAGER / LA TUA SOCIETÀ
+                    </span>
+                    <span>
+                        ANTEPRIMA · DATI DIMOSTRATIVI
+                    </span>
+                </footer>
+            </div>
+        </div>
+    </body>
+</html>

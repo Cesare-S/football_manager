@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#111813">
+        <title>
+            Panoramica · Football Manager
+        </title>
+        <link rel="stylesheet" href="../static/css/dashboard.css">
+    </head>
+    <body>
+        <!-- Anteprima statica autonoma: dati fittizi, nessuna connessione al database.
+         I collegamenti relativi consentono la navigazione aprendo i file nel browser.
+         Campi con id/name pronti per il successivo collegamento da parte dell'utente.
+         Non ci sono invii, azioni server, script o salvataggi. -->
+        <a class="skip-link" href="#main">
+            Vai al contenuto
+        </a>
+        <div class="app">
+            <aside class="sidebar">
+                <a class="brand" href="dashboard.html" aria-label="Football Manager, panoramica">
+                    <span class="brand-mark">
+                        fm↗
+                    </span>
+                    <span>
+                        FOOTBALL
+                        <br>
+                        MANAGER
+                    </span>
+                </a>
+                <div class="club-mini">
+                    <span class="crest" aria-hidden="true">
+                        AF
+                    </span>
+                    <div>
+                        <strong>
+                            Aurora FC
+                        </strong>
+                        <small>
+                            Il tuo club · esempio
+                        </small>
+                    </div>
+                </div>
+                <nav aria-label="Gestione del club">
+                    <div class="nav-group">
+                        <p class="nav-label">
+                            La tua scrivania
+                        </p>
+                        <ul>
+                            <li>
+                                <a class="nav-link" href="dashboard.html" aria-current="page">
+                                    <span aria-hidden="true">
+                                        01
+                                    </span>
+                                    Panoramica
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="profile.html">
+                                    <span aria-hidden="true">
+                                        02
+                                    </span>
+                                    Profilo manager
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="inbox.html">
+                                    <span aria-hidden="true">
+                                        03
+                                    </span>
+                                    Comunicazioni
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="nav-group">
+                        <p class="nav-label">
+                            Società
+                        </p>
+                        <ul>
+                            <li>
+                                <a class="nav-link" href="club.html">
+                                    <span aria-hidden="true">
+                                        01
+                                    </span>
+                                    Identità del club
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="board.html">
+                                    <span aria-hidden="true">
+                                        02
+                                    </span>
+                                    Dirigenza e obiettivi
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="facilities.html">
+                                    <span aria-hidden="true">
+                                        03
+                                    </span>
+                                    Strutture
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="staff.html">
+                                    <span aria-hidden="true">
+                                        04
+                                    </span>
+                                    Staff
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="academy.html">
+                                    <span aria-hidden="true">
+                                        05
+                                    </span>
+                                    Settore giovanile
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="nav-group">
+                        <p class="nav-label">
+                            Amministrazione
+                        </p>
+                        <ul>
+                            <li>
+                                <a class="nav-link" href="finances.html">
+                                    <span aria-hidden="true">
+                                        01
+                                    </span>
+                                    Finanze
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="contracts.html">
+                                    <span aria-hidden="true">
+                                        02
+                                    </span>
+                                    Contratti del club
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="player-contracts.html">
+                                    <span aria-hidden="true">
+                                        03
+                                    </span>
+                                    Contratti giocatori
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="sponsors.html">
+                                    <span aria-hidden="true">
+                                        04
+                                    </span>
+                                    Sponsor
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="transfers.html">
+                                    <span aria-hidden="true">
+                                        05
+                                    </span>
+                                    Mercato e prestiti
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="fans.html">
+                                    <span aria-hidden="true">
+                                        06
+                                    </span>
+                                    Tifosi e ricavi
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="settings.html">
+                                    <span aria-hidden="true">
+                                        07
+                                    </span>
+                                    Impostazioni
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <p class="sidebar-note">
+                    PASSIONE. VISIONE. IDENTITÀ.
+                    <br>
+                    Il gioco è nelle tue mani.
+                </p>
+            </aside>
+            <div class="workspace">
+                <header class="topbar">
+                    <p>
+                        UFFICIO DEL MANAGER
+                        <span aria-hidden="true">
+                            /
+                        </span>
+                        Panoramica
+                    </p>
+                    <div class="account">
+                        <span>
+                            2026/27 · 30 settembre
+                        </span>
+                        <a href="inbox.html" aria-label="Comunicazioni, 3 da leggere">
+                            Posta
+                            <span class="badge">
+                                3
+                            </span>
+                        </a>
+                        <a href="profile.html" aria-label="Profilo di Andrea Rossi">
+                            <span class="avatar" aria-hidden="true">
+                                AR
+                            </span>
+                        </a>
+                    </div>
+                </header>
+                <main id="main" tabindex="-1">
+                    <p class="preview">
+                        Anteprima statica · Club, persone e importi fittizi. I campi sono dimostrativi; salvataggi e operazioni non sono attivi.
+                    </p>
+                    <div class="page-heading">
+                        <div>
+                            <p class="eyebrow">
+                                Gestione del club / Panoramica
+                            </p>
+                            <h1>
+                                Il club comincia da te.
+                            </h1>
+                            <p class="intro">
+                                La situazione della società, le priorità e le decisioni sulla tua scrivania.
+                            </p>
+                        </div>
+                    </div>
+                    <section class="panel hero">
+                        <p class="eyebrow">
+                            Aurora FC / La tua direzione
+                        </p>
+                        <h2>
+                            Una visione chiara.
+                            <br>
+                            Un club da far crescere.
+                        </h2>
+                        <p>
+                            La prossima scelta riguarda il futuro: controlla i conti, cura le strutture e costruisci relazioni che durano.
+                        </p>
+                        <a class="button" href="board.html">
+                            Obiettivi della società ↗
+                        </a>
+                    </section>
+                    <section class="stats" aria-label="Indicatori principali">
+                        <article class="stat">
+                            <p>
+                                Cassa del club
+                            </p>
+                            <strong>
+                                € 12,4 mln
+                            </strong>
+                            <small>
+                                Saldo dimostrativo disponibile
+                            </small>
+                        </article>
+                        <article class="stat">
+                            <p>
+                                Risultato mensile
+                            </p>
+                            <strong>
+                                + € 180 mila
+                            </strong>
+                            <small>
+                                Entrate meno uscite di settembre
+                            </small>
+                        </article>
+                        <article class="stat">
+                            <p>
+                                Contratti in scadenza
+                            </p>
+                            <strong>
+                                4
+                            </strong>
+                            <small>
+                                Entro il 30 giugno 2027
+                            </small>
+                        </article>
+                        <article class="stat">
+                            <p>
+                                Fiducia dirigenza
+                            </p>
+                            <strong>
+                                76 / 100
+                            </strong>
+                            <small>
+                                Situazione dimostrativa
+                            </small>
+                        </article>
+                    </section>
+                    <div class="grid">
+                        <section class="panel">
+                            <h2>
+                                Sulla tua scrivania
+                            </h2>
+                            <ul class="list">
+                                <li>
+                                    <div>
+                                        <strong>
+                                            Rinnovo sponsor principale
+                                        </strong>
+                                        <small>
+                                            Scadenza 30 giugno 2027
+                                        </small>
+                                    </div>
+                                    <div>
+                                        <a href="sponsors.html">
+                                            Esamina →
+                                        </a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <strong>
+                                            Due contratti giocatori da valutare
+                                        </strong>
+                                        <small>
+                                            Scadenza 30 giugno 2027
+                                        </small>
+                                    </div>
+                                    <div>
+                                        <a href="player-contracts.html">
+                                            Apri contratti →
+                                        </a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <strong>
+                                            Manutenzione dello stadio
+                                        </strong>
+                                        <small>
+                                            Intervento proposto · € 120.000
+                                        </small>
+                                    </div>
+                                    <div>
+                                        <a href="facilities.html">
+                                            Vedi struttura →
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </section>
+                        <section class="panel">
+                            <h2>
+                                Distribuzione del budget
+                            </h2>
+                            <div class="meter-row">
+                                <label for="salary-budget">
+                                    <span>
+                                        Stipendi impegnati
+                                    </span>
+                                    <span>
+                                        72%
+                                    </span>
+                                </label>
+                                <meter id="salary-budget" min="0" max="100" value="72">
+                                    72 / 100
+                                </meter>
+                            </div>
+                            <div class="meter-row">
+                                <label for="facility-budget">
+                                    <span>
+                                        Fondo strutture impegnato
+                                    </span>
+                                    <span>
+                                        40%
+                                    </span>
+                                </label>
+                                <meter id="facility-budget" min="0" max="100" value="40">
+                                    40 / 100
+                                </meter>
+                            </div>
+                            <div class="meter-row">
+                                <label for="academy-budget">
+                                    <span>
+                                        Fondo giovani impegnato
+                                    </span>
+                                    <span>
+                                        55%
+                                    </span>
+                                </label>
+                                <meter id="academy-budget" min="0" max="100" value="55">
+                                    55 / 100
+                                </meter>
+                            </div>
+                            <p class="note">
+                                Percentuali dei rispettivi budget annuali.
+                            </p>
+                        </section>
+                    </div>
+                    <section class="panel">
+                        <h2>
+                            Scadenze amministrative
+                        </h2>
+                        <div class="table-wrap" tabindex="0" role="region" aria-label="Agenda dimostrativa · settembre e ottobre 2026">
+                            <table>
+                                <caption>
+                                    Agenda dimostrativa · settembre e ottobre 2026
+                                </caption>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">
+                                            Data
+                                        </th>
+                                        <th scope="col">
+                                            Voce
+                                        </th>
+                                        <th scope="col">
+                                            Importo
+                                        </th>
+                                        <th scope="col">
+                                            Sezione
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">
+                                            30 settembre
+                                        </th>
+                                        <td>
+                                            Stipendi mensili
+                                        </td>
+                                        <td>
+                                            € 600.000
+                                        </td>
+                                        <td>
+                                            <a href="finances.html">
+                                                Finanze →
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            5 ottobre
+                                        </th>
+                                        <td>
+                                            Rata sponsor principale
+                                        </td>
+                                        <td>
+                                            + € 150.000
+                                        </td>
+                                        <td>
+                                            <a href="sponsors.html">
+                                                Sponsor →
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            15 ottobre
+                                        </th>
+                                        <td>
+                                            Revisione polizza impianti
+                                        </td>
+                                        <td>
+                                            € 24.000 annui
+                                        </td>
+                                        <td>
+                                            <a href="contracts.html">
+                                                Contratti →
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </main>
+                <footer class="footer">
+                    <span>
+                        FOOTBALL MANAGER / LA TUA SOCIETÀ
+                    </span>
+                    <span>
+                        ANTEPRIMA · DATI DIMOSTRATIVI
+                    </span>
+                </footer>
+            </div>
+        </div>
+    </body>
+</html>

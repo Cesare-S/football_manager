@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#111813">
+        <title>
+            Sponsor · Football Manager
+        </title>
+        <link rel="stylesheet" href="../static/css/dashboard.css">
+    </head>
+    <body>
+        <!-- Anteprima statica autonoma: dati fittizi, nessuna connessione al database.
+         I collegamenti relativi consentono la navigazione aprendo i file nel browser.
+         Campi con id/name pronti per il successivo collegamento da parte dell'utente.
+         Non ci sono invii, azioni server, script o salvataggi. -->
+        <a class="skip-link" href="#main">
+            Vai al contenuto
+        </a>
+        <div class="app">
+            <aside class="sidebar">
+                <a class="brand" href="dashboard.html" aria-label="Football Manager, panoramica">
+                    <span class="brand-mark">
+                        fm↗
+                    </span>
+                    <span>
+                        FOOTBALL
+                        <br>
+                        MANAGER
+                    </span>
+                </a>
+                <div class="club-mini">
+                    <span class="crest" aria-hidden="true">
+                        AF
+                    </span>
+                    <div>
+                        <strong>
+                            Aurora FC
+                        </strong>
+                        <small>
+                            Il tuo club · esempio
+                        </small>
+                    </div>
+                </div>
+                <nav aria-label="Gestione del club">
+                    <div class="nav-group">
+                        <p class="nav-label">
+                            La tua scrivania
+                        </p>
+                        <ul>
+                            <li>
+                                <a class="nav-link" href="dashboard.html">
+                                    <span aria-hidden="true">
+                                        01
+                                    </span>
+                                    Panoramica
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="profile.html">
+                                    <span aria-hidden="true">
+                                        02
+                                    </span>
+                                    Profilo manager
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="inbox.html">
+                                    <span aria-hidden="true">
+                                        03
+                                    </span>
+                                    Comunicazioni
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="nav-group">
+                        <p class="nav-label">
+                            Società
+                        </p>
+                        <ul>
+                            <li>
+                                <a class="nav-link" href="club.html">
+                                    <span aria-hidden="true">
+                                        01
+                                    </span>
+                                    Identità del club
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="board.html">
+                                    <span aria-hidden="true">
+                                        02
+                                    </span>
+                                    Dirigenza e obiettivi
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="facilities.html">
+                                    <span aria-hidden="true">
+                                        03
+                                    </span>
+                                    Strutture
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="staff.html">
+                                    <span aria-hidden="true">
+                                        04
+                                    </span>
+                                    Staff
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="academy.html">
+                                    <span aria-hidden="true">
+                                        05
+                                    </span>
+                                    Settore giovanile
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="nav-group">
+                        <p class="nav-label">
+                            Amministrazione
+                        </p>
+                        <ul>
+                            <li>
+                                <a class="nav-link" href="finances.html">
+                                    <span aria-hidden="true">
+                                        01
+                                    </span>
+                                    Finanze
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="contracts.html">
+                                    <span aria-hidden="true">
+                                        02
+                                    </span>
+                                    Contratti del club
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="player-contracts.html">
+                                    <span aria-hidden="true">
+                                        03
+                                    </span>
+                                    Contratti giocatori
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="sponsors.html" aria-current="page">
+                                    <span aria-hidden="true">
+                                        04
+                                    </span>
+                                    Sponsor
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="transfers.html">
+                                    <span aria-hidden="true">
+                                        05
+                                    </span>
+                                    Mercato e prestiti
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="fans.html">
+                                    <span aria-hidden="true">
+                                        06
+                                    </span>
+                                    Tifosi e ricavi
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="settings.html">
+                                    <span aria-hidden="true">
+                                        07
+                                    </span>
+                                    Impostazioni
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <p class="sidebar-note">
+                    PASSIONE. VISIONE. IDENTITÀ.
+                    <br>
+                    Il gioco è nelle tue mani.
+                </p>
+            </aside>
+            <div class="workspace">
+                <header class="topbar">
+                    <p>
+                        UFFICIO DEL MANAGER
+                        <span aria-hidden="true">
+                            /
+                        </span>
+                        Sponsor
+                    </p>
+                    <div class="account">
+                        <span>
+                            2026/27 · 30 settembre
+                        </span>
+                        <a href="inbox.html" aria-label="Comunicazioni, 3 da leggere">
+                            Posta
+                            <span class="badge">
+                                3
+                            </span>
+                        </a>
+                        <a href="profile.html" aria-label="Profilo di Andrea Rossi">
+                            <span class="avatar" aria-hidden="true">
+                                AR
+                            </span>
+                        </a>
+                    </div>
+                </header>
+                <main id="main" tabindex="-1">
+                    <p class="preview">
+                        Anteprima statica · Club, persone e importi fittizi. I campi sono dimostrativi; salvataggi e operazioni non sono attivi.
+                    </p>
+                    <div class="page-heading">
+                        <div>
+                            <p class="eyebrow">
+                                Gestione del club / Sponsor
+                            </p>
+                            <h1>
+                                Relazioni che creano valore.
+                            </h1>
+                            <p class="intro">
+                                Partner, ricavi commerciali e spazi ancora disponibili.
+                            </p>
+                        </div>
+                    </div>
+                    <section class="stats" aria-label="Indicatori principali">
+                        <article class="stat">
+                            <p>
+                                Partner attivi
+                            </p>
+                            <strong>
+                                3
+                            </strong>
+                            <small>
+                                Aziende fittizie
+                            </small>
+                        </article>
+                        <article class="stat">
+                            <p>
+                                Ricavi fissi annui
+                            </p>
+                            <strong>
+                                € 2,7 mln
+                            </strong>
+                            <small>
+                                Somma degli accordi attivi
+                            </small>
+                        </article>
+                        <article class="stat">
+                            <p>
+                                Accordi in scadenza
+                            </p>
+                            <strong>
+                                1
+                            </strong>
+                            <small>
+                                Entro il 30 giugno 2027
+                            </small>
+                        </article>
+                        <article class="stat">
+                            <p>
+                                Spazi disponibili
+                            </p>
+                            <strong>
+                                1
+                            </strong>
+                            <small>
+                                Manica della maglia
+                            </small>
+                        </article>
+                    </section>
+                    <div class="cards">
+                        <section class="panel">
+                            <h2>
+                                Orizzonte Energia
+                            </h2>
+                            <p class="eyebrow">
+                                Sponsor principale
+                            </p>
+                            <dl class="facts">
+                                <div>
+                                    <dt>
+                                        Ricavo annuo
+                                    </dt>
+                                    <dd>
+                                        € 1.800.000
+                                    </dd>
+                                </div>
+                                <div>
+                                    <dt>
+                                        Scadenza
+                                    </dt>
+                                    <dd>
+                                        30 giugno 2027
+                                    </dd>
+                                </div>
+                                <div>
+                                    <dt>
+                                        Spazio
+                                    </dt>
+                                    <dd>
+                                        Fronte maglia
+                                    </dd>
+                                </div>
+                            </dl>
+                            <div class="actions">
+                                <a class="button secondary" href="#sponsor-proposal">
+                                    Prepara rinnovo →
+                                </a>
+                            </div>
+                        </section>
+                        <section class="panel">
+                            <h2>
+                                Linea Sport
+                            </h2>
+                            <p class="eyebrow">
+                                Partner tecnico
+                            </p>
+                            <dl class="facts">
+                                <div>
+                                    <dt>
+                                        Ricavo annuo
+                                    </dt>
+                                    <dd>
+                                        € 600.000
+                                    </dd>
+                                </div>
+                                <div>
+                                    <dt>
+                                        Scadenza
+                                    </dt>
+                                    <dd>
+                                        30 giugno 2029
+                                    </dd>
+                                </div>
+                                <div>
+                                    <dt>
+                                        Fornitura
+                                    </dt>
+                                    <dd>
+                                        Materiale sportivo
+                                    </dd>
+                                </div>
+                            </dl>
+                            <span class="badge">
+                                Attivo
+                            </span>
+                        </section>
+                        <section class="panel">
+                            <h2>
+                                Banca del Borgo
+                            </h2>
+                            <p class="eyebrow">
+                                Partner locale
+                            </p>
+                            <dl class="facts">
+                                <div>
+                                    <dt>
+                                        Ricavo annuo
+                                    </dt>
+                                    <dd>
+                                        € 300.000
+                                    </dd>
+                                </div>
+                                <div>
+                                    <dt>
+                                        Scadenza
+                                    </dt>
+                                    <dd>
+                                        30 giugno 2028
+                                    </dd>
+                                </div>
+                                <div>
+                                    <dt>
+                                        Spazio
+                                    </dt>
+                                    <dd>
+                                        Aree ospitalità
+                                    </dd>
+                                </div>
+                            </dl>
+                            <span class="badge">
+                                Attivo
+                            </span>
+                        </section>
+                    </div>
+                    <div class="grid">
+                        <section class="panel">
+                            <h2>
+                                Accordo principale
+                            </h2>
+                            <details>
+                                <summary>
+                                    Pagamenti e obblighi · Orizzonte Energia
+                                </summary>
+                                <div class="detail-body">
+                                    <dl class="facts">
+                                        <div>
+                                            <dt>
+                                                Pagamento ordinario
+                                            </dt>
+                                            <dd>
+                                                € 150.000 al mese
+                                            </dd>
+                                        </div>
+                                        <div>
+                                            <dt>
+                                                Bonus massimo annuo
+                                            </dt>
+                                            <dd>
+                                                € 100.000
+                                            </dd>
+                                        </div>
+                                        <div>
+                                            <dt>
+                                                Esclusiva di settore
+                                            </dt>
+                                            <dd>
+                                                Energia
+                                            </dd>
+                                        </div>
+                                        <div>
+                                            <dt>
+                                                Attività concordate
+                                            </dt>
+                                            <dd>
+                                                4 eventi commerciali annui
+                                            </dd>
+                                        </div>
+                                    </dl>
+                                    <p class="note">
+                                        Bonus dimostrativo legato agli obiettivi commerciali. Non incluso nei ricavi fissi.
+                                    </p>
+                                </div>
+                            </details>
+                            <p class="note">
+                                Il conto economico mensile può includere ricavi variabili e accordi non ricorrenti oltre ai canoni fissi.
+                            </p>
+                        </section>
+                        <section class="panel">
+                            <h2>
+                                Spazio disponibile
+                            </h2>
+                            <div class="empty">
+                                <h3>
+                                    Manica della maglia
+                                </h3>
+                                <p>
+                                    Nessun partner assegnato. Valore richiesto di esempio: € 200.000 annui.
+                                </p>
+                                <a href="#sponsor-proposal">
+                                    Prepara una proposta →
+                                </a>
+                            </div>
+                        </section>
+                    </div>
+                    <section class="panel" id="sponsor-proposal">
+                        <h2>
+                            Proposta commerciale
+                        </h2>
+                        <fieldset>
+                            <legend>
+                                Condizioni dell’accordo
+                            </legend>
+                            <div class="fields">
+                                <div class="field">
+                                    <label for="sponsor-name">
+                                        Azienda
+                                    </label>
+                                    <input id="sponsor-name" name="sponsor-name" type="text" value="Orizzonte Energia">
+                                </div>
+                                <div class="field">
+                                    <label for="sponsor-space">
+                                        Spazio
+                                    </label>
+                                    <select id="sponsor-space" name="sponsor-space">
+                                        <option>
+                                            Fronte maglia
+                                        </option>
+                                        <option>
+                                            Manica
+                                        </option>
+                                        <option>
+                                            Partner tecnico
+                                        </option>
+                                        <option>
+                                            Ospitalità
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="field">
+                                    <label for="sponsor-fee">
+                                        Ricavo annuo (€)
+                                    </label>
+                                    <input id="sponsor-fee" name="sponsor-fee" type="number" value="1800000">
+                                </div>
+                                <div class="field">
+                                    <label for="sponsor-end">
+                                        Scadenza
+                                    </label>
+                                    <input id="sponsor-end" name="sponsor-end" type="date" value="2029-06-30">
+                                </div>
+                                <div class="field">
+                                    <label for="sponsor-bonus">
+                                        Bonus massimo annuo (€)
+                                    </label>
+                                    <input id="sponsor-bonus" name="sponsor-bonus" type="number" value="100000">
+                                </div>
+                                <div class="field">
+                                    <label for="sponsor-payment">
+                                        Frequenza di pagamento
+                                    </label>
+                                    <select id="sponsor-payment" name="sponsor-payment">
+                                        <option>
+                                            Mensile
+                                        </option>
+                                        <option>
+                                            Trimestrale
+                                        </option>
+                                        <option>
+                                            Annuale
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <p class="note">
+                                Puoi provare i campi. Le modifiche non vengono salvate.
+                            </p>
+                            <div class="actions">
+                                <button class="button" type="button" disabled>
+                                    Invia proposta · non attivo
+                                </button>
+                            </div>
+                        </fieldset>
+                    </section>
+                </main>
+                <footer class="footer">
+                    <span>
+                        FOOTBALL MANAGER / LA TUA SOCIETÀ
+                    </span>
+                    <span>
+                        ANTEPRIMA · DATI DIMOSTRATIVI
+                    </span>
+                </footer>
+            </div>
+        </div>
+    </body>
+</html>

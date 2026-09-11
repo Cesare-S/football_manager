@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#111813">
+        <title>
+            Settore giovanile · Football Manager
+        </title>
+        <link rel="stylesheet" href="../static/css/dashboard.css">
+    </head>
+    <body>
+        <!-- Anteprima statica autonoma: dati fittizi, nessuna connessione al database.
+         I collegamenti relativi consentono la navigazione aprendo i file nel browser.
+         Campi con id/name pronti per il successivo collegamento da parte dell'utente.
+         Non ci sono invii, azioni server, script o salvataggi. -->
+        <a class="skip-link" href="#main">
+            Vai al contenuto
+        </a>
+        <div class="app">
+            <aside class="sidebar">
+                <a class="brand" href="dashboard.html" aria-label="Football Manager, panoramica">
+                    <span class="brand-mark">
+                        fm↗
+                    </span>
+                    <span>
+                        FOOTBALL
+                        <br>
+                        MANAGER
+                    </span>
+                </a>
+                <div class="club-mini">
+                    <span class="crest" aria-hidden="true">
+                        AF
+                    </span>
+                    <div>
+                        <strong>
+                            Aurora FC
+                        </strong>
+                        <small>
+                            Il tuo club · esempio
+                        </small>
+                    </div>
+                </div>
+                <nav aria-label="Gestione del club">
+                    <div class="nav-group">
+                        <p class="nav-label">
+                            La tua scrivania
+                        </p>
+                        <ul>
+                            <li>
+                                <a class="nav-link" href="dashboard.html">
+                                    <span aria-hidden="true">
+                                        01
+                                    </span>
+                                    Panoramica
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="profile.html">
+                                    <span aria-hidden="true">
+                                        02
+                                    </span>
+                                    Profilo manager
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="inbox.html">
+                                    <span aria-hidden="true">
+                                        03
+                                    </span>
+                                    Comunicazioni
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="nav-group">
+                        <p class="nav-label">
+                            Società
+                        </p>
+                        <ul>
+                            <li>
+                                <a class="nav-link" href="club.html">
+                                    <span aria-hidden="true">
+                                        01
+                                    </span>
+                                    Identità del club
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="board.html">
+                                    <span aria-hidden="true">
+                                        02
+                                    </span>
+                                    Dirigenza e obiettivi
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="facilities.html">
+                                    <span aria-hidden="true">
+                                        03
+                                    </span>
+                                    Strutture
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="staff.html">
+                                    <span aria-hidden="true">
+                                        04
+                                    </span>
+                                    Staff
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="academy.html" aria-current="page">
+                                    <span aria-hidden="true">
+                                        05
+                                    </span>
+                                    Settore giovanile
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="nav-group">
+                        <p class="nav-label">
+                            Amministrazione
+                        </p>
+                        <ul>
+                            <li>
+                                <a class="nav-link" href="finances.html">
+                                    <span aria-hidden="true">
+                                        01
+                                    </span>
+                                    Finanze
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="contracts.html">
+                                    <span aria-hidden="true">
+                                        02
+                                    </span>
+                                    Contratti del club
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="player-contracts.html">
+                                    <span aria-hidden="true">
+                                        03
+                                    </span>
+                                    Contratti giocatori
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="sponsors.html">
+                                    <span aria-hidden="true">
+                                        04
+                                    </span>
+                                    Sponsor
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="transfers.html">
+                                    <span aria-hidden="true">
+                                        05
+                                    </span>
+                                    Mercato e prestiti
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="fans.html">
+                                    <span aria-hidden="true">
+                                        06
+                                    </span>
+                                    Tifosi e ricavi
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="settings.html">
+                                    <span aria-hidden="true">
+                                        07
+                                    </span>
+                                    Impostazioni
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <p class="sidebar-note">
+                    PASSIONE. VISIONE. IDENTITÀ.
+                    <br>
+                    Il gioco è nelle tue mani.
+                </p>
+            </aside>
+            <div class="workspace">
+                <header class="topbar">
+                    <p>
+                        UFFICIO DEL MANAGER
+                        <span aria-hidden="true">
+                            /
+                        </span>
+                        Settore giovanile
+                    </p>
+                    <div class="account">
+                        <span>
+                            2026/27 · 30 settembre
+                        </span>
+                        <a href="inbox.html" aria-label="Comunicazioni, 3 da leggere">
+                            Posta
+                            <span class="badge">
+                                3
+                            </span>
+                        </a>
+                        <a href="profile.html" aria-label="Profilo di Andrea Rossi">
+                            <span class="avatar" aria-hidden="true">
+                                AR
+                            </span>
+                        </a>
+                    </div>
+                </header>
+                <main id="main" tabindex="-1">
+                    <p class="preview">
+                        Anteprima statica · Club, persone e importi fittizi. I campi sono dimostrativi; salvataggi e operazioni non sono attivi.
+                    </p>
+                    <div class="page-heading">
+                        <div>
+                            <p class="eyebrow">
+                                Gestione del club / Settore giovanile
+                            </p>
+                            <h1>
+                                Coltiva il futuro della società.
+                            </h1>
+                            <p class="intro">
+                                Budget, strutture e organizzazione del vivaio.
+                            </p>
+                        </div>
+                    </div>
+                    <section class="stats" aria-label="Indicatori principali">
+                        <article class="stat">
+                            <p>
+                                Budget annuo
+                            </p>
+                            <strong>
+                                € 400 mila
+                            </strong>
+                            <small>
+                                Fondo dedicato
+                            </small>
+                        </article>
+                        <article class="stat">
+                            <p>
+                                Fondi impegnati
+                            </p>
+                            <strong>
+                                € 220 mila
+                            </strong>
+                            <small>
+                                55% del budget
+                            </small>
+                        </article>
+                        <article class="stat">
+                            <p>
+                                Categorie
+                            </p>
+                            <strong>
+                                3
+                            </strong>
+                            <small>
+                                U19 · U17 · U15
+                            </small>
+                        </article>
+                        <article class="stat">
+                            <p>
+                                Scuole partner
+                            </p>
+                            <strong>
+                                2
+                            </strong>
+                            <small>
+                                Accordi dimostrativi
+                            </small>
+                        </article>
+                    </section>
+                    <div class="grid">
+                        <section class="panel">
+                            <h2>
+                                Organizzazione del vivaio
+                            </h2>
+                            <div class="table-wrap" tabindex="0" role="region" aria-label="Categorie e risorse amministrative di esempio">
+                                <table>
+                                    <caption>
+                                        Categorie e risorse amministrative di esempio
+                                    </caption>
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">
+                                                Categoria
+                                            </th>
+                                            <th scope="col">
+                                                Responsabile
+                                            </th>
+                                            <th scope="col">
+                                                Fondi impegnati
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">
+                                                U19
+                                            </th>
+                                            <td>
+                                                Giulia Leone
+                                            </td>
+                                            <td>
+                                                € 100.000
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">
+                                                U17
+                                            </th>
+                                            <td>
+                                                Fabio Neri
+                                            </td>
+                                            <td>
+                                                € 70.000
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">
+                                                U15
+                                            </th>
+                                            <td>
+                                                Anna Galli
+                                            </td>
+                                            <td>
+                                                € 50.000
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+                        <section class="panel">
+                            <h2>
+                                Progetto educativo
+                            </h2>
+                            <dl class="facts">
+                                <div>
+                                    <dt>
+                                        Coordinatrice
+                                    </dt>
+                                    <dd>
+                                        Giulia Leone
+                                    </dd>
+                                </div>
+                                <div>
+                                    <dt>
+                                        Centro di riferimento
+                                    </dt>
+                                    <dd>
+                                        Centro La Quercia
+                                    </dd>
+                                </div>
+                                <div>
+                                    <dt>
+                                        Trasporto ragazzi
+                                    </dt>
+                                    <dd>
+                                        Servizio convenzionato
+                                    </dd>
+                                </div>
+                                <div>
+                                    <dt>
+                                        Supporto scolastico
+                                    </dt>
+                                    <dd>
+                                        2 istituti partner
+                                    </dd>
+                                </div>
+                            </dl>
+                            <p class="note">
+                                I fondi indicati riguardano i programmi del vivaio. I contratti del personale sono riepilogati nella sezione staff.
+                            </p>
+                        </section>
+                    </div>
+                    <section class="panel">
+                        <h2>
+                            Convenzioni e servizi
+                        </h2>
+                        <ul class="list">
+                            <li>
+                                <div>
+                                    <strong>
+                                        Istituto Valleverde
+                                    </strong>
+                                    <small>
+                                        Supporto allo studio · fino al 30 giugno 2028
+                                    </small>
+                                </div>
+                                <div>
+                                    <span class="badge">
+                                        Attivo
+                                    </span>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <strong>
+                                        Liceo Aurora
+                                    </strong>
+                                    <small>
+                                        Percorsi scolastici · fino al 30 giugno 2028
+                                    </small>
+                                </div>
+                                <div>
+                                    <span class="badge">
+                                        Attivo
+                                    </span>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <strong>
+                                        Servizio trasporto
+                                    </strong>
+                                    <small>
+                                        Copertura per tutte e tre le categorie
+                                    </small>
+                                </div>
+                                <div>
+                                    <span class="badge">
+                                        Attivo
+                                    </span>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    <section class="panel">
+                        <h2>
+                            Pianificazione del vivaio
+                        </h2>
+                        <fieldset>
+                            <legend>
+                                Risorse per categoria
+                            </legend>
+                            <div class="fields">
+                                <div class="field">
+                                    <label for="academy-category">
+                                        Categoria
+                                    </label>
+                                    <select id="academy-category" name="academy-category">
+                                        <option>
+                                            U19
+                                        </option>
+                                        <option>
+                                            U17
+                                        </option>
+                                        <option>
+                                            U15
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="field">
+                                    <label for="academy-funds">
+                                        Fondo annuale (€)
+                                    </label>
+                                    <input id="academy-funds" name="academy-funds" type="number" value="100000">
+                                </div>
+                                <div class="field">
+                                    <label for="academy-coordinator">
+                                        Responsabile
+                                    </label>
+                                    <input id="academy-coordinator" name="academy-coordinator" type="text" value="Giulia Leone">
+                                </div>
+                                <div class="field">
+                                    <label for="academy-priority">
+                                        Priorità organizzativa
+                                    </label>
+                                    <select id="academy-priority" name="academy-priority">
+                                        <option>
+                                            Supporto scolastico
+                                        </option>
+                                        <option>
+                                            Strutture
+                                        </option>
+                                        <option>
+                                            Trasporti
+                                        </option>
+                                        <option>
+                                            Convenzioni
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <p class="note">
+                                Puoi provare i campi. Le modifiche non vengono salvate.
+                            </p>
+                            <div class="actions">
+                                <button class="button" type="button" disabled>
+                                    Proponi piano · non attivo
+                                </button>
+                            </div>
+                        </fieldset>
+                    </section>
+                </main>
+                <footer class="footer">
+                    <span>
+                        FOOTBALL MANAGER / LA TUA SOCIETÀ
+                    </span>
+                    <span>
+                        ANTEPRIMA · DATI DIMOSTRATIVI
+                    </span>
+                </footer>
+            </div>
+        </div>
+    </body>
+</html>
