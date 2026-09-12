@@ -1,5 +1,6 @@
 package app;
 
+import controller.RegistrationController;
 import web.*;
 import persistence.ManagerRepository;
 import service.RegistrationService;
@@ -16,7 +17,10 @@ public class Main {
 
          TemplateRenderer templateRenderer = new TemplateRenderer();
 
-        WebServer webServer = new WebServer(registrationService, templateRenderer);
+        // Creazione e collegamento del controller di registrazione scritti dall'agente AI su richiesta dell'utente.
+        RegistrationController registrationController = new RegistrationController(registrationService, templateRenderer);
+
+        WebServer webServer = new WebServer(registrationService, templateRenderer, registrationController);
 
        
 

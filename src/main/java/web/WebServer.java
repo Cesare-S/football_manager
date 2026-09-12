@@ -9,6 +9,8 @@ import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.net.InetSocketAddress;
 import service.RegistrationService;
+import controller.RegistrationController;
+
 import java.util.Map;
 import java.sql.SQLException;
 
@@ -16,11 +18,15 @@ public class WebServer {
 
     private final RegistrationService registrationService;
     private final TemplateRenderer templateRenderer;
+    // Collegamento delle rotte di registrazione scritto dall'agente AI su richiesta dell'utente.
+    private final RegistrationController registrationController;
 
-    public WebServer(RegistrationService registrationService, TemplateRenderer templateRenderer) {
+    public WebServer(RegistrationService registrationService, TemplateRenderer templateRenderer,
+            RegistrationController registrationController) {
 
         this.registrationService = registrationService;
         this.templateRenderer = templateRenderer;
+        this.registrationController = registrationController;
      
                  
     }
@@ -30,73 +36,8 @@ public class WebServer {
        
         HttpServer server = HttpServer.create(new InetSocketAddress(port), 0);
         
-        // 3. Associa un percorso (context) a un gestore di richieste (Handler)
-        server.createContext("/", new HttpHandler() {
-            @Override
-            public void handle(HttpExchange exchange) throws IOException {
-             
-                String response = templateRenderer.returnTemplate("register.html");
-                byte[] responseBytes = response.getBytes(StandardCharsets.UTF_8);
-                
-                
-
-                exchange.getResponseHeaders().set("Content-Type", "text/html; charset=UTF-8");
-                
-                exchange.sendResponseHeaders(200, responseBytes.length);
-
-                
-                try (OutputStream os = exchange.getResponseBody()) {
-                    os.write(responseBytes);
-                }
-                
-                
-            }
-        });
-
-        server.createContext("/register", new HttpHandler() {
-            @Override
-            public void handle(HttpExchange exchange) throws IOException {
-             
-            
-                if (exchange.getRequestMethod().equals("POST")){
-
-                    try (InputStream getParsedBody = exchange.getRequestBody()) {
-
-
-                        String formDataString = new String(getParsedBody.readAllBytes(), StandardCharsets.UTF_8);
-
-
-                        Map<String, String> formData = FormParser.mapForm(formDataString);
-
-                        String name = formData.get("name");
-                        String email = formData.get("email");
-                        String password = formData.get("password");
-
-                        try {
-                            registrationService.registerManager(name, email, password);
-                            exchange.getResponseHeaders().set("Location", "/choose-club");
-    
-                            exchange.sendResponseHeaders(302, -1);
-
-
-                        } catch (SQLException e) {
-                            System.out.println("error " + e);
-                            throw new IOException("errore registrazione");
-                        }
-
-
-                    return;
-                    }
-                    
-                }else{
-                    exchange.sendResponseHeaders(405, -1);
-
-                    return;
-
-                }
-                
-            }
-        });
+        server.createContext("/", registrationController);
+        server.createContext("/register", registrationController);
         
 
         
