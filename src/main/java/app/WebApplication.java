@@ -33,7 +33,7 @@ public class WebApplication {
         router.addRoute("GET", "/login", loginController::showLoginForm);
 
         // Manteniamo disponibili la destinazione del redirect e il CSS esistenti.
-        router.addRoute("GET", "/choose-club", exchange -> showClubSelection(exchange, templateRenderer));
+        router.addRoute("GET", "/choose-club", TeamController::showClubSelection);
         router.addRoute("GET", "/static/css/style.css", WebApplication::serveStylesheet);
 
         return new WebServer(router);
