@@ -34,9 +34,11 @@ Questa eccezione prevale sui divieti di scrittura e sulle indicazioni didattiche
 
 ### Registro delle eccezioni Java utilizzate
 
-- Controller — `src/main/java/controller/RegistrationController.java` — 2026-09-12. Classe scritta dall'agente AI su richiesta esplicita dell'utente; gestisce esclusivamente GET `/` e POST `/register`.
-- Server web — `src/main/java/web/WebServer.java`, collegamento delle rotte `/` e `/register` — 2026-09-12. Integrazione scritta dall'agente AI su richiesta esplicita dell'utente.
-- Bootstrap dell'applicazione — `src/main/java/app/Main.java`, creazione e passaggio di `RegistrationController` — 2026-09-12. Integrazione scritta dall'agente AI su richiesta esplicita dell'utente.
+- Controller — `src/main/java/controller/RegistrationController.java` — 2026-09-12.
+- Server web — `src/main/java/web/WebServer.java`, collegamento registrazione — 2026-09-12.
+- Bootstrap — `src/main/java/app/Main.java`, creazione e passaggio del controller — 2026-09-12.
+- Deroga esplicita limitata al task del 2026-09-14: riassetto di Main, WebServer e RegistrationController; sola pagina di LoginController; introduzione di WebApplication (composizione e rotte) e Router (smistamento HTTP). Autorizzata dall'utente con «questo task fallo liberamente». Nessuna autorizzazione permanente per interventi successivi, nemmeno su questi componenti. Attribuzione e ambito riportati anche nel Main.
+
 
 # Come comunicare
 
