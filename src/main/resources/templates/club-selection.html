@@ -6,8 +6,46 @@
     <meta name="theme-color" content="#111813">
     <title>Scegli il tuo club · Football Manager</title>
     <link rel="stylesheet" href="/static/css/style.css">
+
+    <style>
+        /* Interazione solo HTML/CSS. Elenco statico dei club presenti nel database. */
+        .club-selection .profile-card { max-width: 560px; }
+        .club-picker { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; border: 0; padding: 0; margin: 0; min-width: 0; }
+        .club-picker > legend { font-size: 13px; margin-bottom: 14px; color: var(--muted); }
+        .league-radio { position: absolute; width: 1px; height: 1px; padding: 0; clip-path: inset(50%); overflow: hidden; white-space: nowrap; }
+        .league-choice { display: flex; flex-direction: column; justify-content: flex-start; gap: 10px; padding: 18px 12px; border: 1px solid var(--line); border-radius: 8px; cursor: pointer; background: var(--bg); }
+        .league-choice strong { font-size: 23px; letter-spacing: -.8px; }
+        .league-choice span { font: inherit; font-size: 11px; line-height: 1.5; color: var(--muted); }
+        .league-radio:checked + .league-choice { border-color: var(--lime); background: #293822; }
+        .league-radio:checked + .league-choice strong { color: var(--lime); }
+        .league-radio:focus-visible + .league-choice { outline: 2px solid var(--lime); outline-offset: 3px; }
+        .league-choice:hover { border-color: var(--lime); }
+        .league-panel, .league-prompt { grid-column: 1 / -1; margin-top: 14px; }
+        .league-panel { display: none; }
+        #league-a:checked ~ #clubs-a, #league-b:checked ~ #clubs-b, #league-c:checked ~ #clubs-c { display: block; }
+        .league-radio:checked ~ .league-prompt { display: none; }
+        .league-prompt, .empty-league { border: 1px dashed var(--line); border-radius: 8px; padding: 24px; }
+        .club-selection .selection-note { color: var(--muted); font-size: 12px; line-height: 1.7; margin: 0 0 18px; }
+        .league-panel h3 { font-size: 21px; margin: 0 0 10px; }
+        .club-options { border: 0; padding: 0; margin: 0; min-width: 0; display: grid; gap: 8px; }
+        .club-options legend { font-size: 13px; margin-bottom: 14px; }
+        .club-option { justify-content: flex-start; align-items: center; gap: 12px; border: 1px solid var(--line); border-radius: 7px; padding: 14px; background: #111a14; cursor: pointer; }
+        .club-option input { width: 18px; height: 18px; flex: 0 0 18px; padding: 0; margin: 0; accent-color: var(--lime); }
+        .club-option .club-info { display: grid; gap: 5px; flex: 1; font-family: inherit; }
+        .club-option strong { font-size: 14px; color: var(--text); }
+        .club-option small { font-size: 11px; color: var(--muted); font-family: inherit; }
+        .club-option input:checked + .club-info strong { color: var(--lime); }
+        .club-option input:checked + .club-info::after { content: "✓ Squadra selezionata"; color: var(--lime); font-size: 11px; margin-top: 3px; }
+        .club-option:focus-within { outline: 2px solid var(--lime); outline-offset: 2px; }
+        .club-selection button:disabled { cursor: not-allowed; background: #29352b; color: var(--muted); border-color: var(--line); box-shadow: none; transform: none; }
+        .club-group { border: 1px solid var(--line); border-radius: 8px; padding: 16px; margin-bottom: 12px; }
+        .club-group summary { cursor: pointer; font-size: 15px; font-weight: 600; color: var(--lime); }
+        .club-group summary span { font-size: 11px; color: var(--muted); margin-left: 10px; }
+        .club-group[open] summary { margin-bottom: 18px; }
+        @media (max-width: 420px) { .league-choice { padding: 14px 8px; } .league-choice strong { font-size: 20px; } }
+    </style>
 </head>
-<body>
+<body class="club-selection">
     <header class="topbar">
         <a class="brand" href="/" aria-label="Football Manager, home"><span class="brand-mark">fm<span>↗</span></span><span>FOOTBALL<br>MANAGER</span></a>
         <span class="edition">IL TUO CLUB. LE TUE REGOLE.</span>
@@ -15,13 +53,13 @@
     </header>
     <main>
         <section class="story" aria-labelledby="headline">
-            <p class="eyebrow"><span aria-hidden="true"></span> NOVE CLUB. LA TUA PROSSIMA STORIA.</p>
+            <p class="eyebrow"><span aria-hidden="true"></span> TRE CATEGORIE. LA TUA PROSSIMA STORIA.</p>
             <h1 id="headline">Una città.<br>Una maglia.<br><em>La tua.</em></h1>
             <p class="intro">Scegli i colori per cui costruire qualcosa di grande.<br>Dalle ambizioni di vertice alle sfide tutte da scrivere.</p>
             <div class="tactical-board">
                 <div class="board-top"><span><i aria-hidden="true"></i> QUI COMINCIA L'APPARTENENZA</span><span>ITALIA</span></div>
                 <svg viewBox="0 0 560 280" role="img" aria-labelledby="shirt-title">
-                    <title id="shirt-title">Maglia da calcio con uno scudo, circondata dai colori dei nove club</title>
+                    <title id="shirt-title">Maglia da calcio con uno scudo, circondata da colori calcistici</title>
                     <defs><pattern id="shirt-grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" fill="none" stroke="#89a28d" stroke-opacity=".1"/></pattern></defs>
                     <rect x="20" y="10" width="520" height="260" fill="url(#shirt-grid)"/>
                     <circle cx="280" cy="140" r="111" fill="none" stroke="#89a28d" stroke-opacity=".25" stroke-dasharray="3 7"/>
@@ -42,54 +80,466 @@
             <div class="profile-card">
                 <div class="card-kicker"><span>IL TUO PROSSIMO CAPITOLO</span><span class="profile-icon" aria-hidden="true">✳</span></div>
                 <h2 id="clubs-title">Scegli da<br>dove partire.</h2>
-                <p class="form-intro">Apri una scheda e scopri la tua prossima sfida.<br>Costi dimostrativi di gioco. Acquisto non ancora disponibile.</p>
-                <!-- Schede statiche: i costi non provengono dal database. -->
-                <details class="tactical-board" open>
-                    <summary class="board-top"><span>01 / NAPOLI</span><span>€ 450 MLN · ↓</span></summary>
-                    <div class="board-bottom"><p>NAPOLI · PASSIONE AZZURRA<br><br>Una città che vive di calcio. Costruisci una squadra capace di farla sognare ancora.</p></div>
-                    <div class="board-bottom"><span>LA SFIDA</span><span>✦</span></div>
-                    <div class="board-bottom"><p>Trasforma l'entusiasmo in continuità, stagione dopo stagione.</p></div>
-                </details>
-                <details class="tactical-board">
-                    <summary class="board-top"><span>02 / JUVENTUS</span><span>€ 750 MLN · ↓</span></summary>
-                    <div class="board-bottom"><p>TORINO · MENTALITÀ BIANCONERA<br><br>Un nome che porta aspettative enormi. Dai una nuova direzione all'ambizione.</p></div>
-                    <div class="board-bottom"><span>LA SFIDA · Costruire per vincere a lungo.</span><span aria-hidden="true">↗</span></div>
-                </details>
-                <details class="tactical-board">
-                    <summary class="board-top"><span>03 / INTER</span><span>€ 800 MLN · ↓</span></summary>
-                    <div class="board-bottom"><p>MILANO · ORGOGLIO NERAZZURRO<br><br>Il palcoscenico è grande. Servono idee lucide e il coraggio di puntare in alto.</p></div>
-                    <div class="board-bottom"><span>LA SFIDA · Restare al vertice, guardare all'Europa.</span><span aria-hidden="true">↗</span></div>
-                </details>
-                <details class="tactical-board">
-                    <summary class="board-top"><span>04 / MILAN</span><span>€ 700 MLN · ↓</span></summary>
-                    <div class="board-bottom"><p>MILANO · VOCAZIONE ROSSONERA<br><br>Una maglia dal respiro internazionale. Il futuro merita la stessa grandezza del passato.</p></div>
-                    <div class="board-bottom"><span>LA SFIDA · Unire talento e mentalità vincente.</span><span aria-hidden="true">↗</span></div>
-                </details>
-                <details class="tactical-board">
-                    <summary class="board-top"><span>05 / COMO</span><span>€ 120 MLN · ↓</span></summary>
-                    <div class="board-bottom"><p>COMO · ORIZZONTI NUOVI<br><br>Il fascino del lago, l'energia di un progetto da costruire. Ogni passo può cambiare la tua dimensione.</p></div>
-                    <div class="board-bottom"><span>LA SFIDA · Crescere senza perdere identità.</span><span aria-hidden="true">↗</span></div>
-                </details>
-                <details class="tactical-board">
-                    <summary class="board-top"><span>06 / ROMA</span><span>€ 400 MLN · ↓</span></summary>
-                    <div class="board-bottom"><p>ROMA · CUORE GIALLOROSSO<br><br>Una piazza intensa, una passione che non fa sconti. Conquista la fiducia con il tuo calcio.</p></div>
-                    <div class="board-bottom"><span>LA SFIDA · Dare forma a una grande ambizione.</span><span aria-hidden="true">↗</span></div>
-                </details>
-                <details class="tactical-board">
-                    <summary class="board-top"><span>07 / LAZIO</span><span>€ 250 MLN · ↓</span></summary>
-                    <div class="board-bottom"><p>ROMA · VOLO BIANCOCELESTE<br><br>Carattere, equilibrio e appartenenza. Costruisci un gruppo che sappia andare oltre le attese.</p></div>
-                    <div class="board-bottom"><span>LA SFIDA · Rendere ogni scelta un vantaggio.</span><span aria-hidden="true">↗</span></div>
-                </details>
-                <details class="tactical-board">
-                    <summary class="board-top"><span>08 / FIORENTINA</span><span>€ 220 MLN · ↓</span></summary>
-                    <div class="board-bottom"><p>FIRENZE · ISPIRAZIONE VIOLA<br><br>Una città che riconosce la bellezza. Porta in campo una visione che lasci il segno.</p></div>
-                    <div class="board-bottom"><span>LA SFIDA · Far crescere il talento e l'ambizione.</span><span aria-hidden="true">↗</span></div>
-                </details>
-                <details class="tactical-board">
-                    <summary class="board-top"><span>09 / ATALANTA</span><span>€ 300 MLN · ↓</span></summary>
-                    <div class="board-bottom"><p>BERGAMO · IDEE IN MOVIMENTO<br><br>Lavoro, intensità e talento da scoprire. Fai del progetto la tua forza più grande.</p></div>
-                    <div class="board-bottom"><span>LA SFIDA · Scoprire oggi i protagonisti di domani.</span><span aria-hidden="true">↗</span></div>
-                </details>
+                <p class="form-intro">Prima scegli la categoria, poi la squadra.<br>100 squadre italiane · Stagione 2026/27.</p>
+                <!-- Catalogo statico 2026/27 verificato il 2026-09-14, coerente con
+                     database/seeds/002_clubs_2026_27.sql. Non legge il DB a runtime.
+                     Un solo form e gruppo radio team_id: una sola squadra selezionabile.
+                     value = team.id; data-club-id è un'indicazione HTML e non viene inviato.
+                     Il futuro backend deve ricavare club_id dal team_id e verificare
+                     la categoria nel DB, senza fidarsi dei campi del browser.
+                     Il prezzo delle U23 è quello del club proprietario, non della squadra.
+                     Collegare action/method e conferma quando si implementerà il salvataggio. -->
+                <form id="club-selection-form" aria-label="Scelta della squadra">
+                <fieldset class="club-picker">
+                    <legend>01 / Scegli da quale categoria partire</legend>
+                    <input class="league-radio" type="radio" name="league" id="league-a" value="A" aria-controls="clubs-a">
+                    <label class="league-choice" for="league-a"><strong>Serie A</strong><span>20 squadre<br>La sfida del vertice</span></label>
+                    <input class="league-radio" type="radio" name="league" id="league-b" value="B" aria-controls="clubs-b">
+                    <label class="league-choice" for="league-b"><strong>Serie B</strong><span>20 squadre<br>La corsa alla promozione</span></label>
+                    <input class="league-radio" type="radio" name="league" id="league-c" value="C" aria-controls="clubs-c">
+                    <label class="league-choice" for="league-c"><strong>Serie C</strong><span>60 squadre<br>Costruire dal basso</span></label>
+                    <div class="league-prompt"><p class="selection-note">Il tuo viaggio comincia dal campionato. Seleziona A, B o C per vedere le squadre.</p></div>
+                    <section class="league-panel" id="clubs-a" aria-labelledby="serie-a-title">
+                        <h3 id="serie-a-title">Serie A · 20 squadre</h3>
+                        <p class="selection-note">Stagione 2026/27. Seleziona la squadra da cui partire.</p>
+                            <fieldset class="club-options">
+                                <legend>02 / Seleziona la tua squadra</legend>
+                                <label class="club-option" for="team-9">
+                                    <input type="radio" id="team-9" name="team_id" value="9" data-club-id="9">
+                                    <span class="club-info"><strong>Atalanta</strong><small>Prezzo del club · € 400 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-10">
+                                    <input type="radio" id="team-10" name="team_id" value="10" data-club-id="10">
+                                    <span class="club-info"><strong>Bologna</strong><small>Prezzo del club · € 180 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-11">
+                                    <input type="radio" id="team-11" name="team_id" value="11" data-club-id="11">
+                                    <span class="club-info"><strong>Cagliari</strong><small>Prezzo del club · € 100 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-5">
+                                    <input type="radio" id="team-5" name="team_id" value="5" data-club-id="5">
+                                    <span class="club-info"><strong>Como</strong><small>Prezzo del club · € 220 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-8">
+                                    <input type="radio" id="team-8" name="team_id" value="8" data-club-id="8">
+                                    <span class="club-info"><strong>Fiorentina</strong><small>Prezzo del club · € 280 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-12">
+                                    <input type="radio" id="team-12" name="team_id" value="12" data-club-id="12">
+                                    <span class="club-info"><strong>Frosinone</strong><small>Prezzo del club · € 100 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-13">
+                                    <input type="radio" id="team-13" name="team_id" value="13" data-club-id="13">
+                                    <span class="club-info"><strong>Genoa</strong><small>Prezzo del club · € 100 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-3">
+                                    <input type="radio" id="team-3" name="team_id" value="3" data-club-id="3">
+                                    <span class="club-info"><strong>Inter</strong><small>Prezzo del club · € 900 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-2">
+                                    <input type="radio" id="team-2" name="team_id" value="2" data-club-id="2">
+                                    <span class="club-info"><strong>Juventus</strong><small>Prezzo del club · € 850 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-7">
+                                    <input type="radio" id="team-7" name="team_id" value="7" data-club-id="7">
+                                    <span class="club-info"><strong>Lazio</strong><small>Prezzo del club · € 250 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-14">
+                                    <input type="radio" id="team-14" name="team_id" value="14" data-club-id="14">
+                                    <span class="club-info"><strong>Lecce</strong><small>Prezzo del club · € 100 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-4">
+                                    <input type="radio" id="team-4" name="team_id" value="4" data-club-id="4">
+                                    <span class="club-info"><strong>Milan</strong><small>Prezzo del club · € 750 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-15">
+                                    <input type="radio" id="team-15" name="team_id" value="15" data-club-id="15">
+                                    <span class="club-info"><strong>Monza</strong><small>Prezzo del club · € 100 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-1">
+                                    <input type="radio" id="team-1" name="team_id" value="1" data-club-id="1">
+                                    <span class="club-info"><strong>Napoli</strong><small>Prezzo del club · € 650 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-16">
+                                    <input type="radio" id="team-16" name="team_id" value="16" data-club-id="16">
+                                    <span class="club-info"><strong>Parma</strong><small>Prezzo del club · € 100 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-6">
+                                    <input type="radio" id="team-6" name="team_id" value="6" data-club-id="6">
+                                    <span class="club-info"><strong>Roma</strong><small>Prezzo del club · € 550 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-17">
+                                    <input type="radio" id="team-17" name="team_id" value="17" data-club-id="17">
+                                    <span class="club-info"><strong>Sassuolo</strong><small>Prezzo del club · € 100 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-18">
+                                    <input type="radio" id="team-18" name="team_id" value="18" data-club-id="18">
+                                    <span class="club-info"><strong>Torino</strong><small>Prezzo del club · € 100 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-19">
+                                    <input type="radio" id="team-19" name="team_id" value="19" data-club-id="19">
+                                    <span class="club-info"><strong>Udinese</strong><small>Prezzo del club · € 100 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-20">
+                                    <input type="radio" id="team-20" name="team_id" value="20" data-club-id="20">
+                                    <span class="club-info"><strong>Venezia</strong><small>Prezzo del club · € 100 mln</small></span>
+                                </label>
+                            </fieldset>
+                    </section>
+                    <section class="league-panel" id="clubs-b" aria-labelledby="serie-b-title">
+                        <h3 id="serie-b-title">Serie B · 20 squadre</h3>
+                        <p class="selection-note">Stagione 2026/27. Seleziona la squadra da cui partire.</p>
+                            <fieldset class="club-options">
+                                <legend>02 / Seleziona la tua squadra</legend>
+                                <label class="club-option" for="team-21">
+                                    <input type="radio" id="team-21" name="team_id" value="21" data-club-id="21">
+                                    <span class="club-info"><strong>Arezzo</strong><small>Prezzo del club · € 25 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-22">
+                                    <input type="radio" id="team-22" name="team_id" value="22" data-club-id="22">
+                                    <span class="club-info"><strong>Ascoli</strong><small>Prezzo del club · € 25 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-23">
+                                    <input type="radio" id="team-23" name="team_id" value="23" data-club-id="23">
+                                    <span class="club-info"><strong>Avellino</strong><small>Prezzo del club · € 25 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-24">
+                                    <input type="radio" id="team-24" name="team_id" value="24" data-club-id="24">
+                                    <span class="club-info"><strong>Benevento</strong><small>Prezzo del club · € 25 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-25">
+                                    <input type="radio" id="team-25" name="team_id" value="25" data-club-id="25">
+                                    <span class="club-info"><strong>Carrarese</strong><small>Prezzo del club · € 25 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-26">
+                                    <input type="radio" id="team-26" name="team_id" value="26" data-club-id="26">
+                                    <span class="club-info"><strong>Catanzaro</strong><small>Prezzo del club · € 25 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-27">
+                                    <input type="radio" id="team-27" name="team_id" value="27" data-club-id="27">
+                                    <span class="club-info"><strong>Cesena</strong><small>Prezzo del club · € 25 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-28">
+                                    <input type="radio" id="team-28" name="team_id" value="28" data-club-id="28">
+                                    <span class="club-info"><strong>Cremonese</strong><small>Prezzo del club · € 25 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-29">
+                                    <input type="radio" id="team-29" name="team_id" value="29" data-club-id="29">
+                                    <span class="club-info"><strong>Empoli</strong><small>Prezzo del club · € 25 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-30">
+                                    <input type="radio" id="team-30" name="team_id" value="30" data-club-id="30">
+                                    <span class="club-info"><strong>Hellas Verona</strong><small>Prezzo del club · € 25 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-31">
+                                    <input type="radio" id="team-31" name="team_id" value="31" data-club-id="31">
+                                    <span class="club-info"><strong>Juve Stabia</strong><small>Prezzo del club · € 25 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-32">
+                                    <input type="radio" id="team-32" name="team_id" value="32" data-club-id="32">
+                                    <span class="club-info"><strong>L.R. Vicenza</strong><small>Prezzo del club · € 25 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-33">
+                                    <input type="radio" id="team-33" name="team_id" value="33" data-club-id="33">
+                                    <span class="club-info"><strong>Mantova</strong><small>Prezzo del club · € 25 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-34">
+                                    <input type="radio" id="team-34" name="team_id" value="34" data-club-id="34">
+                                    <span class="club-info"><strong>Modena</strong><small>Prezzo del club · € 25 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-35">
+                                    <input type="radio" id="team-35" name="team_id" value="35" data-club-id="35">
+                                    <span class="club-info"><strong>Padova</strong><small>Prezzo del club · € 25 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-36">
+                                    <input type="radio" id="team-36" name="team_id" value="36" data-club-id="36">
+                                    <span class="club-info"><strong>Palermo</strong><small>Prezzo del club · € 25 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-37">
+                                    <input type="radio" id="team-37" name="team_id" value="37" data-club-id="37">
+                                    <span class="club-info"><strong>Pisa</strong><small>Prezzo del club · € 25 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-38">
+                                    <input type="radio" id="team-38" name="team_id" value="38" data-club-id="38">
+                                    <span class="club-info"><strong>Sampdoria</strong><small>Prezzo del club · € 25 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-39">
+                                    <input type="radio" id="team-39" name="team_id" value="39" data-club-id="39">
+                                    <span class="club-info"><strong>Südtirol</strong><small>Prezzo del club · € 25 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-40">
+                                    <input type="radio" id="team-40" name="team_id" value="40" data-club-id="40">
+                                    <span class="club-info"><strong>Virtus Entella</strong><small>Prezzo del club · € 25 mln</small></span>
+                                </label>
+                            </fieldset>
+                    </section>
+                    <section class="league-panel" id="clubs-c" aria-labelledby="serie-c-title">
+                        <h3 id="serie-c-title">Serie C · 60 squadre</h3>
+                        <p class="selection-note">Stagione 2026/27. Apri un girone e seleziona la squadra. Le tre U23 appartengono ai rispettivi club di Serie A.</p>
+                        <details class="club-group" open>
+                            <summary>Girone A <span>20 squadre</span></summary>
+                            <fieldset class="club-options">
+                                <legend>Squadre del girone A</legend>
+                                <label class="club-option" for="team-41">
+                                    <input type="radio" id="team-41" name="team_id" value="41" data-club-id="41">
+                                    <span class="club-info"><strong>AlbinoLeffe</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-42">
+                                    <input type="radio" id="team-42" name="team_id" value="42" data-club-id="42">
+                                    <span class="club-info"><strong>Alcione Milano</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-43">
+                                    <input type="radio" id="team-43" name="team_id" value="43" data-club-id="43">
+                                    <span class="club-info"><strong>Arzignano Valchiampo</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-44">
+                                    <input type="radio" id="team-44" name="team_id" value="44" data-club-id="44">
+                                    <span class="club-info"><strong>Carpi</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-45">
+                                    <input type="radio" id="team-45" name="team_id" value="45" data-club-id="45">
+                                    <span class="club-info"><strong>Cittadella</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-46">
+                                    <input type="radio" id="team-46" name="team_id" value="46" data-club-id="46">
+                                    <span class="club-info"><strong>Desenzano</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-47">
+                                    <input type="radio" id="team-47" name="team_id" value="47" data-club-id="47">
+                                    <span class="club-info"><strong>Dolomiti Bellunesi</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-48">
+                                    <input type="radio" id="team-48" name="team_id" value="48" data-club-id="48">
+                                    <span class="club-info"><strong>Folgore Caratese</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-49">
+                                    <input type="radio" id="team-49" name="team_id" value="49" data-club-id="49">
+                                    <span class="club-info"><strong>Giana Erminio</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-50">
+                                    <input type="radio" id="team-50" name="team_id" value="50" data-club-id="2">
+                                    <span class="club-info"><strong>Juventus Next Gen</strong><small>Seconda squadra del club Juventus · Prezzo del club · € 850 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-51">
+                                    <input type="radio" id="team-51" name="team_id" value="51" data-club-id="50">
+                                    <span class="club-info"><strong>Lecco</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-52">
+                                    <input type="radio" id="team-52" name="team_id" value="52" data-club-id="51">
+                                    <span class="club-info"><strong>Lumezzane</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-53">
+                                    <input type="radio" id="team-53" name="team_id" value="53" data-club-id="52">
+                                    <span class="club-info"><strong>Novara</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-54">
+                                    <input type="radio" id="team-54" name="team_id" value="54" data-club-id="53">
+                                    <span class="club-info"><strong>Ospitaletto Franciacorta</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-55">
+                                    <input type="radio" id="team-55" name="team_id" value="55" data-club-id="54">
+                                    <span class="club-info"><strong>Pergolettese</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-56">
+                                    <input type="radio" id="team-56" name="team_id" value="56" data-club-id="55">
+                                    <span class="club-info"><strong>Pro Vercelli</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-57">
+                                    <input type="radio" id="team-57" name="team_id" value="57" data-club-id="56">
+                                    <span class="club-info"><strong>Renate</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-58">
+                                    <input type="radio" id="team-58" name="team_id" value="58" data-club-id="57">
+                                    <span class="club-info"><strong>Trento</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-59">
+                                    <input type="radio" id="team-59" name="team_id" value="59" data-club-id="58">
+                                    <span class="club-info"><strong>Treviso</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-60">
+                                    <input type="radio" id="team-60" name="team_id" value="60" data-club-id="59">
+                                    <span class="club-info"><strong>Union Brescia</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                            </fieldset>
+                        </details>
+                        <details class="club-group">
+                            <summary>Girone B <span>20 squadre</span></summary>
+                            <fieldset class="club-options">
+                                <legend>Squadre del girone B</legend>
+                                <label class="club-option" for="team-61">
+                                    <input type="radio" id="team-61" name="team_id" value="61" data-club-id="9">
+                                    <span class="club-info"><strong>Atalanta U23</strong><small>Seconda squadra del club Atalanta · Prezzo del club · € 400 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-62">
+                                    <input type="radio" id="team-62" name="team_id" value="62" data-club-id="60">
+                                    <span class="club-info"><strong>Campobasso</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-63">
+                                    <input type="radio" id="team-63" name="team_id" value="63" data-club-id="61">
+                                    <span class="club-info"><strong>Forlì</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-64">
+                                    <input type="radio" id="team-64" name="team_id" value="64" data-club-id="62">
+                                    <span class="club-info"><strong>Grosseto</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-65">
+                                    <input type="radio" id="team-65" name="team_id" value="65" data-club-id="63">
+                                    <span class="club-info"><strong>Gubbio</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-66">
+                                    <input type="radio" id="team-66" name="team_id" value="66" data-club-id="64">
+                                    <span class="club-info"><strong>Guidonia Montecelio</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-67">
+                                    <input type="radio" id="team-67" name="team_id" value="67" data-club-id="65">
+                                    <span class="club-info"><strong>Latina</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-68">
+                                    <input type="radio" id="team-68" name="team_id" value="68" data-club-id="66">
+                                    <span class="club-info"><strong>Livorno</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-69">
+                                    <input type="radio" id="team-69" name="team_id" value="69" data-club-id="67">
+                                    <span class="club-info"><strong>Ostiamare</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-70">
+                                    <input type="radio" id="team-70" name="team_id" value="70" data-club-id="68">
+                                    <span class="club-info"><strong>Perugia</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-71">
+                                    <input type="radio" id="team-71" name="team_id" value="71" data-club-id="69">
+                                    <span class="club-info"><strong>Pescara</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-72">
+                                    <input type="radio" id="team-72" name="team_id" value="72" data-club-id="70">
+                                    <span class="club-info"><strong>Pianese</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-73">
+                                    <input type="radio" id="team-73" name="team_id" value="73" data-club-id="71">
+                                    <span class="club-info"><strong>Pineto</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-74">
+                                    <input type="radio" id="team-74" name="team_id" value="74" data-club-id="72">
+                                    <span class="club-info"><strong>Ravenna</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-75">
+                                    <input type="radio" id="team-75" name="team_id" value="75" data-club-id="73">
+                                    <span class="club-info"><strong>Reggiana</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-76">
+                                    <input type="radio" id="team-76" name="team_id" value="76" data-club-id="74">
+                                    <span class="club-info"><strong>Sambenedettese</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-77">
+                                    <input type="radio" id="team-77" name="team_id" value="77" data-club-id="75">
+                                    <span class="club-info"><strong>Spezia</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-78">
+                                    <input type="radio" id="team-78" name="team_id" value="78" data-club-id="76">
+                                    <span class="club-info"><strong>Torres</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-79">
+                                    <input type="radio" id="team-79" name="team_id" value="79" data-club-id="77">
+                                    <span class="club-info"><strong>Vado</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-80">
+                                    <input type="radio" id="team-80" name="team_id" value="80" data-club-id="78">
+                                    <span class="club-info"><strong>Vis Pesaro</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                            </fieldset>
+                        </details>
+                        <details class="club-group">
+                            <summary>Girone C <span>20 squadre</span></summary>
+                            <fieldset class="club-options">
+                                <legend>Squadre del girone C</legend>
+                                <label class="club-option" for="team-81">
+                                    <input type="radio" id="team-81" name="team_id" value="81" data-club-id="79">
+                                    <span class="club-info"><strong>Audace Cerignola</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-82">
+                                    <input type="radio" id="team-82" name="team_id" value="82" data-club-id="80">
+                                    <span class="club-info"><strong>AZ Picerno</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-83">
+                                    <input type="radio" id="team-83" name="team_id" value="83" data-club-id="81">
+                                    <span class="club-info"><strong>Bari</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-84">
+                                    <input type="radio" id="team-84" name="team_id" value="84" data-club-id="82">
+                                    <span class="club-info"><strong>Barletta</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-85">
+                                    <input type="radio" id="team-85" name="team_id" value="85" data-club-id="83">
+                                    <span class="club-info"><strong>Casarano</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-86">
+                                    <input type="radio" id="team-86" name="team_id" value="86" data-club-id="84">
+                                    <span class="club-info"><strong>Casertana</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-87">
+                                    <input type="radio" id="team-87" name="team_id" value="87" data-club-id="85">
+                                    <span class="club-info"><strong>Catania</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-88">
+                                    <input type="radio" id="team-88" name="team_id" value="88" data-club-id="86">
+                                    <span class="club-info"><strong>Cavese</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-89">
+                                    <input type="radio" id="team-89" name="team_id" value="89" data-club-id="87">
+                                    <span class="club-info"><strong>Cosenza</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-90">
+                                    <input type="radio" id="team-90" name="team_id" value="90" data-club-id="88">
+                                    <span class="club-info"><strong>Crotone</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-91">
+                                    <input type="radio" id="team-91" name="team_id" value="91" data-club-id="89">
+                                    <span class="club-info"><strong>Foggia</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-92">
+                                    <input type="radio" id="team-92" name="team_id" value="92" data-club-id="90">
+                                    <span class="club-info"><strong>Giugliano</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-93">
+                                    <input type="radio" id="team-93" name="team_id" value="93" data-club-id="3">
+                                    <span class="club-info"><strong>Inter U23</strong><small>Seconda squadra del club Inter · Prezzo del club · € 900 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-94">
+                                    <input type="radio" id="team-94" name="team_id" value="94" data-club-id="91">
+                                    <span class="club-info"><strong>Monopoli</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-95">
+                                    <input type="radio" id="team-95" name="team_id" value="95" data-club-id="92">
+                                    <span class="club-info"><strong>Potenza</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-96">
+                                    <input type="radio" id="team-96" name="team_id" value="96" data-club-id="93">
+                                    <span class="club-info"><strong>Salernitana</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-97">
+                                    <input type="radio" id="team-97" name="team_id" value="97" data-club-id="94">
+                                    <span class="club-info"><strong>Savoia</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-98">
+                                    <input type="radio" id="team-98" name="team_id" value="98" data-club-id="95">
+                                    <span class="club-info"><strong>Scafatese</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-99">
+                                    <input type="radio" id="team-99" name="team_id" value="99" data-club-id="96">
+                                    <span class="club-info"><strong>Sorrento</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                                <label class="club-option" for="team-100">
+                                    <input type="radio" id="team-100" name="team_id" value="100" data-club-id="97">
+                                    <span class="club-info"><strong>Team Altamura</strong><small>Prezzo del club · € 5 mln</small></span>
+                                </label>
+                            </fieldset>
+                        </details>
+                    </section>
+                </fieldset>
+                    <p class="selection-note">Prezzi e budget sono valori del gioco. Per i nuovi club sono provvisori: A € 100 mln, B € 25 mln, C € 5 mln. I club già presenti mantengono i propri importi.</p>
+                    <button type="button" disabled aria-describedby="save-note">Conferma squadra · prossimamente</button>
+                    <p class="selection-note" id="save-note">La selezione è solo locale alla pagina e non viene salvata. Puoi cambiare categoria e scegliere un’altra squadra; la conferma sarà disponibile in seguito.</p>
+                </form>
                 <p class="login-link">Hai già una carriera? <a href="/login">Accedi al tuo profilo <span aria-hidden="true">→</span></a></p>
             </div>
         </section>

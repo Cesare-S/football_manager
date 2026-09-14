@@ -34,6 +34,8 @@ Questa eccezione prevale sui divieti di scrittura e sulle indicazioni didattiche
 
 ### Registro delle eccezioni Java utilizzate
 
+- Deroga SQL/database del 2026-09-14: autorizzati schema, migrazione, seed aggiuntivo e aggiornamento SQLite per il catalogo squadre A/B/C 2026/27, relativi controlli e documentazione. Autorizzazione esplicita «si autorizzo la deroga». Include completamento HTML della selezione; non autorizza Java, rose dei giocatori o salvataggio della scelta. Vale soltanto per questo task.
+
 - Controller — `src/main/java/controller/RegistrationController.java` — 2026-09-12.
 - Server web — `src/main/java/web/WebServer.java`, collegamento registrazione — 2026-09-12.
 - Bootstrap — `src/main/java/app/Main.java`, creazione e passaggio del controller — 2026-09-12.
