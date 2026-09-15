@@ -27,4 +27,23 @@ public class TeamController {
         }
     }
 
+    public void associateClub(HttpExchange exchange) throws IOException {
+        try (InputStream requestBody = exchange.getRequestBody()) {
+            String formDataString = new String(requestBody.readAllBytes(), StandardCharsets.UTF_8);
+            Map<String, String> formData = FormParser.mapForm(formDataString);
+
+            int name = formData.get("team_id");
+       
+
+            try {
+                registrationService.registerManager(name, email, password);
+                exchange.getResponseHeaders().set("Location", "/dashboard");
+                exchange.sendResponseHeaders(302, -1);
+            } catch (SQLException exception) {
+                System.out.println("error " + exception);
+                throw new IOException("errore registrazione");
+            }
+        }
+    }
+
 }

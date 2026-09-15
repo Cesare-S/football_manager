@@ -7,6 +7,7 @@ public class Team {
 
     private String name;
     private List<Player> players;
+    private int budget;
 
     public Team(String nameTeam) {
 
@@ -16,6 +17,7 @@ public class Team {
 
         this.name = nameTeam;
         this.players = new ArrayList<>();
+        this.budget = 0;
     
     }
 
@@ -25,6 +27,14 @@ public class Team {
 
     public List<Player> getPlayers() {
         return players;
+    }
+
+    public int getBudget() {
+        return budget;
+    }
+
+    public void setBudget(int budget) {
+        this.budget = budget;
     }
 
     public void insertPlayerOnTeam(Player teamPlayer) {
