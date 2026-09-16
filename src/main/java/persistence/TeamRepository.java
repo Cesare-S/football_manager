@@ -1,5 +1,14 @@
 package persistence;
 
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.Optional;
+import java.sql.Connection; 
+
+import model.Team;
+
 public class TeamRepository{
     public void associateTeamToManager(Team team, int purchasePrice, int managerId)throws SQLException {
         
@@ -8,9 +17,9 @@ public class TeamRepository{
 
         try (PreparedStatement pstmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             pstmt.setString(1, team.getName()); 
-            pstmt.setString(2, purchasePrice);
-            pstmt.setString(3, team.getBudget());
-            pstmt.setString(3, managerId);
+            pstmt.setInt(2, purchasePrice);
+            pstmt.setInt(3, team.getBudget());
+            pstmt.setInt(4, managerId);
      
     
             pstmt.executeUpdate(); 
@@ -26,7 +35,7 @@ public class TeamRepository{
     
     }
 
-    public Optional<Team> getNameTeam(int id){
+    public Optional<Team> getNameTeam(int id) throws SQLException{
 
          try (Connection connection = Database.connection()){
 

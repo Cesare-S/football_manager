@@ -1,18 +1,29 @@
 package controller;
 
 import com.sun.net.httpserver.HttpExchange;
+
+import service.RegistrationService;
+import service.TeamService;
+
 import java.io.IOException;
 import java.io.OutputStream;
+import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
+import java.sql.SQLException;
+
 import web.TemplateRenderer;
+import web.FormParser;
+import java.util.Map;
 
 public class TeamController {
 
     // Metodo showLoginForm e relativi import scritti dall'agente AI il 2026-09-14.
     // Campo e costruttore erano già presenti nel tentativo dell'utente.
     private final TemplateRenderer templateRenderer;
+    private final TeamService teamService;
 
-    public TeamController(TemplateRenderer templateRenderer) {
+    public TeamController(TeamService teamService, TemplateRenderer templateRenderer) {
+        this.teamService = teamService;
         this.templateRenderer = templateRenderer;
     }
     
@@ -36,7 +47,7 @@ public class TeamController {
        
 
             try {
-                registrationService.registerManager(name, email, password);
+                teamService.associateTeamToManager(name, email, password);
                 exchange.getResponseHeaders().set("Location", "/dashboard");
                 exchange.sendResponseHeaders(302, -1);
             } catch (SQLException exception) {

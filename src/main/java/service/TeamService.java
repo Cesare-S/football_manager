@@ -1,6 +1,11 @@
 package service;
 
-import src.main.java.persistence.TeamRepository;
+import java.sql.SQLException;
+import java.util.Optional;
+
+import model.Team;
+import persistence.TeamRepository;
+
 
 public class TeamService{
 
@@ -10,12 +15,9 @@ public class TeamService{
         this.teamRepository = teamRepository;
     }
 
-    public associateTeamToManager(int teamId, int budget, int managerId, int purchasePrice){
+    public Optional<Team> associateTeamToManager(int teamId, int budget, int managerId, int purchasePrice) throws SQLException{
 
-        TeamRepository teamRepository = new TeamRepository();
-
-        Team team = teamRepository.getNameTeam(teamId);
-
+        return teamRepository.getNameTeam(teamId);
         
         
     }
