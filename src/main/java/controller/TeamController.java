@@ -45,9 +45,23 @@ public class TeamController {
 
             String id = formData.get("team_id");
        
+            String cookieHeader = exchange.getRequestHeaders().getFirst("Cookie");
+            String idTrovato = 0;
+
+            // 2. Se l'header esiste ed è pieno, estrai il valore
+            if (cookieHeader != null && !cookieHeader.isEmpty()) {
+                // I cookie arrivano come "nome=valore; altroNome=altroValore", li dividiamo
+                String[] cookies = cookieHeader.split("; ");
+                for (String c : cookies) {
+                    if (c.startsWith("managerId=")) {
+                        idTrovato = c.substring("managerId=".length());
+                        break; // Trovato!
+                    }
+                }
+            }
 
             try {
-                teamService.associateTeamToManager(Integer.parseInt(id), managerId, purchasePrice);
+                teamService.associateTeamToManager(Integer.parseInt(id), Integer.parseInt(idTrovato));
                 exchange.getResponseHeaders().set("Location", "/dashboard");
                 exchange.sendResponseHeaders(302, -1);
             } catch (SQLException exception) {

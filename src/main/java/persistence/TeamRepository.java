@@ -42,9 +42,9 @@ public class TeamRepository{
             String sqlSelect = "SELECT * FROM manager WHERE id = ?";
             try (PreparedStatement pstmtSelect = connection.prepareStatement(sqlSelect)) {
                 pstmtSelect.setLong(1, id);
-                try (ResultSet getManager = pstmtSelect.executeQuery()) {
-                    if (getManager.next()) {
-                        Team team = new Team(getManager.getString("name"));
+                try (ResultSet getTeam = pstmtSelect.executeQuery()) {
+                    if (getTeam.next()) {
+                        Team team = new Team(getTeam.getString("name"));
                         return Optional.of(team);
                     }
                     return Optional.empty();
@@ -56,4 +56,27 @@ public class TeamRepository{
         } 
 
     }
+
+    public int getPurchasePrice(int id) throws SQLException{
+
+         try (Connection connection = Database.connection()){
+
+            String sqlSelect = "SELECT * FROM manager WHERE id = ?";
+            try (PreparedStatement pstmtSelect = connection.prepareStatement(sqlSelect)) {
+                pstmtSelect.setLong(1, id);
+                try (ResultSet getTeam = pstmtSelect.executeQuery()) {
+                    if (getTeam.next()) {
+                        return getTeam.getInt("purchase_price_eur");
+                    }
+                    return 0;
+                }
+            }
+                    
+                    
+
+        } 
+
+    }
+
+    
 }

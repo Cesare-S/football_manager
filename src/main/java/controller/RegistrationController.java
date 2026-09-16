@@ -11,6 +11,8 @@ import service.RegistrationService;
 import web.FormParser;
 import web.TemplateRenderer;
 
+import model.Manager;
+
 public class RegistrationController {
 
     // Classe scritta dall'agente AI su richiesta esplicita dell'utente.
@@ -44,7 +46,13 @@ public class RegistrationController {
             String password = formData.get("password");
 
             try {
-                registrationService.registerManager(name, email, password);
+                Manager manager = registrationService.registerManager(name, email, password);
+                String cookieTesto = "managerId=" + manager.getId() + "; Path=/; Max-Age=86400";
+
+                // 2. Aggiungi il cookie agli header della risposta (usa la tua variabile HttpExchange)
+                exchange.getResponseHeaders().add("Set-Cookie", cookieTesto);
+                
+
                 exchange.getResponseHeaders().set("Location", "/choose-club");
                 exchange.sendResponseHeaders(302, -1);
             } catch (SQLException exception) {
