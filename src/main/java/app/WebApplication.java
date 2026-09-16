@@ -9,7 +9,9 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
 import persistence.ManagerRepository;
+import persistence.TeamRepository;
 import service.RegistrationService;
+import service.TeamService;
 import web.Router;
 import web.TemplateRenderer;
 import web.WebServer;
@@ -21,13 +23,15 @@ public class WebApplication {
     public static WebServer createServer() {
         ManagerRepository managerRepository = new ManagerRepository();
         RegistrationService registrationService = new RegistrationService(managerRepository);
+        TeamRepository teamRepository = new TeamRepository();
+        TeamService teamService = new TeamService(teamRepository);
         TemplateRenderer templateRenderer = new TemplateRenderer();
 
         RegistrationController registrationController =
                 new RegistrationController(registrationService, templateRenderer);
         LoginController loginController = new LoginController(templateRenderer);
 
-        TeamController teamController = new TeamController(templateRenderer);
+        TeamController teamController = new TeamController(teamService, templateRenderer);
 
         Router router = new Router();
         // :: passa il metodo da eseguire in seguito, quando arriva la richiesta.

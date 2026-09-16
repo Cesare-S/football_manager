@@ -15,9 +15,16 @@ public class TeamService{
         this.teamRepository = teamRepository;
     }
 
-    public Optional<Team> associateTeamToManager(int teamId, int budget, int managerId, int purchasePrice) throws SQLException{
+    public void associateTeamToManager(int teamId, int managerId, int purchasePrice) throws SQLException{
 
-        return teamRepository.getNameTeam(teamId);
+        Optional<Team> teamOptional = teamRepository.getNameTeam(teamId);
+
+        if (!teamOptional.isPresent()){
+            throw new IllegalArgumentException("Errore: team non trovato!");
+        }
+
+        ;
+        teamRepository.associateTeamToManager(teamOptional.get(), purchasePrice, managerId);
         
         
     }

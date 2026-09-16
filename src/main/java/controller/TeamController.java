@@ -43,11 +43,11 @@ public class TeamController {
             String formDataString = new String(requestBody.readAllBytes(), StandardCharsets.UTF_8);
             Map<String, String> formData = FormParser.mapForm(formDataString);
 
-            int name = formData.get("team_id");
+            String id = formData.get("team_id");
        
 
             try {
-                teamService.associateTeamToManager(name, email, password);
+                teamService.associateTeamToManager(teamId, managerId, purchasePrice);
                 exchange.getResponseHeaders().set("Location", "/dashboard");
                 exchange.sendResponseHeaders(302, -1);
             } catch (SQLException exception) {
