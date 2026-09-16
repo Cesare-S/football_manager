@@ -45,6 +45,8 @@ public class WebApplication {
         router.addRoute("GET", "/dashboard", teamController::showDashboard);
         router.addRoute("GET", "/static/css/style.css", WebApplication::serveStylesheet);
 
+        router.addRoute("GET", "/static/css/dashboard.css", WebApplication::serveStylesheet);
+
         return new WebServer(router);
     }
 
