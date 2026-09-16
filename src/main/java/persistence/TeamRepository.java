@@ -10,16 +10,25 @@ import java.sql.Connection;
 import model.Team;
 
 public class TeamRepository{
-    public void associateTeamToManager(Team team, int purchasePrice, int managerId)throws SQLException {
+    public void associateTeamToManager(Team team, int purchasePrice, int managerId) throws SQLException {
         
         try (Connection connection = Database.connection()){
-        String sql = "INSERT INTO owner_manager_id (name, purchase_price, budget_eur, owner_manager_id) VALUES (?, ?, ?, ?)";
+        String sqlSelect = "SELECT * FROM team WHERE name = ?";
+            try (PreparedStatement pstmtSelect = connection.prepareStatement(sqlSelect)) {
+                pstmtSelect.setString(1, team.getName());
+                try (ResultSet getTeam = pstmtSelect.executeQuery()) {
+                    if (getTeam.next()) {
+                        int clubId = getTeam.getInt("club_id");                   
+                     
+                        String sql = "UPDATE club SET owner_manager_id = ? WHERE id = ?";
 
-        try (PreparedStatement pstmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-            pstmt.setString(1, team.getName()); 
-            pstmt.setInt(2, purchasePrice);
-            pstmt.setInt(3, team.getBudget());
-            pstmt.setInt(4, managerId);
+                        
+                        try (PreparedStatement pstmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+                            pstmt.setInt(1, managerId);
+                            pstmt.setInt(2, clubId); 
+            
+            
+            
      
     
             pstmt.executeUpdate(); 
@@ -29,8 +38,13 @@ public class TeamRepository{
  
        
             
-            throw new SQLException("Errore: nessuna riga recuperata!");
-            } 
+
+                    }
+                   
+                }
+            }
+        }
+        
        
     
     }
@@ -39,7 +53,7 @@ public class TeamRepository{
 
          try (Connection connection = Database.connection()){
 
-            String sqlSelect = "SELECT * FROM manager WHERE id = ?";
+            String sqlSelect = "SELECT * FROM team WHERE id = ?";
             try (PreparedStatement pstmtSelect = connection.prepareStatement(sqlSelect)) {
                 pstmtSelect.setLong(1, id);
                 try (ResultSet getTeam = pstmtSelect.executeQuery()) {
@@ -61,12 +75,23 @@ public class TeamRepository{
 
          try (Connection connection = Database.connection()){
 
-            String sqlSelect = "SELECT * FROM manager WHERE id = ?";
+            String sqlSelect = "SELECT * FROM team WHERE id = ?";
             try (PreparedStatement pstmtSelect = connection.prepareStatement(sqlSelect)) {
                 pstmtSelect.setLong(1, id);
                 try (ResultSet getTeam = pstmtSelect.executeQuery()) {
                     if (getTeam.next()) {
-                        return getTeam.getInt("purchase_price_eur");
+                        int clubId = getTeam.getInt("club_id");
+
+                        String sqlSelectClub = "SELECT * FROM club WHERE id = ?";
+                        try (PreparedStatement pstmtSelectClub = connection.prepareStatement(sqlSelectClub)) {
+                            pstmtSelectClub.setLong(1, id);
+                            try (ResultSet getClub = pstmtSelectClub.executeQuery()) {
+                                if (getClub.next()) {
+                                    return getClub.getInt("purchase_price_eur");
+                                }
+                                return 0;
+                            }
+                        }
                     }
                     return 0;
                 }

@@ -38,6 +38,18 @@ public class TeamController {
         }
     }
 
+    
+    public void showDashboard(HttpExchange exchange) throws IOException {
+        String response = templateRenderer.returnTemplate("dashboard.html");
+        byte[] responseBytes = response.getBytes(StandardCharsets.UTF_8);
+        exchange.getResponseHeaders().set("Content-Type", "text/html; charset=UTF-8");
+        exchange.sendResponseHeaders(200, responseBytes.length);
+
+        try (OutputStream outputStream = exchange.getResponseBody()) {
+            outputStream.write(responseBytes);
+        }
+    }
+
     public void associateClub(HttpExchange exchange) throws IOException {
         try (InputStream requestBody = exchange.getRequestBody()) {
             String formDataString = new String(requestBody.readAllBytes(), StandardCharsets.UTF_8);
@@ -46,7 +58,7 @@ public class TeamController {
             String id = formData.get("team_id");
        
             String cookieHeader = exchange.getRequestHeaders().getFirst("Cookie");
-            String idTrovato = 0;
+            int idTrovato = 0;
 
             // 2. Se l'header esiste ed è pieno, estrai il valore
             if (cookieHeader != null && !cookieHeader.isEmpty()) {
@@ -54,14 +66,15 @@ public class TeamController {
                 String[] cookies = cookieHeader.split("; ");
                 for (String c : cookies) {
                     if (c.startsWith("managerId=")) {
-                        idTrovato = c.substring("managerId=".length());
+                        idTrovato = "managerId=".length();
                         break; // Trovato!
                     }
                 }
             }
 
             try {
-                teamService.associateTeamToManager(Integer.parseInt(id), Integer.parseInt(idTrovato));
+                teamService.associateTeamToManager(Integer.parseInt(id), idTrovato);
+                
                 exchange.getResponseHeaders().set("Location", "/dashboard");
                 exchange.sendResponseHeaders(302, -1);
             } catch (SQLException exception) {

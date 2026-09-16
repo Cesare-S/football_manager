@@ -41,6 +41,8 @@ public class WebApplication {
         // Manteniamo disponibili la destinazione del redirect e il CSS esistenti.
         router.addRoute("GET", "/choose-club", teamController::showClubSelection);
         router.addRoute("POST", "/club-selection-form", teamController::associateClub);
+        
+        router.addRoute("GET", "/dashboard", teamController::showDashboard);
         router.addRoute("GET", "/static/css/style.css", WebApplication::serveStylesheet);
 
         return new WebServer(router);
