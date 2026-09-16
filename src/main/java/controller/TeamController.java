@@ -47,7 +47,7 @@ public class TeamController {
        
 
             try {
-                teamService.associateTeamToManager(teamId, managerId, purchasePrice);
+                teamService.associateTeamToManager(Integer.parseInt(id), managerId, purchasePrice);
                 exchange.getResponseHeaders().set("Location", "/dashboard");
                 exchange.sendResponseHeaders(302, -1);
             } catch (SQLException exception) {
