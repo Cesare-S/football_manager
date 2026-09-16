@@ -89,7 +89,7 @@
                      la categoria nel DB, senza fidarsi dei campi del browser.
                      Il prezzo delle U23 è quello del club proprietario, non della squadra.
                      Collegare action/method e conferma quando si implementerà il salvataggio. -->
-                <form id="club-selection-form" aria-label="Scelta della squadra">
+                <form id="club-selection-form" action="/club-selection-form" method="post" aria-label="Scelta della squadra">
                 <fieldset class="club-picker">
                     <legend>01 / Scegli da quale categoria partire</legend>
                     <input class="league-radio" type="radio" name="league" id="league-a" value="A" aria-controls="clubs-a">
@@ -537,7 +537,7 @@
                     </section>
                 </fieldset>
                     <p class="selection-note">Prezzi e budget sono valori del gioco. Per i nuovi club sono provvisori: A € 100 mln, B € 25 mln, C € 5 mln. I club già presenti mantengono i propri importi.</p>
-                    <button type="button" disabled aria-describedby="save-note">Conferma squadra · prossimamente</button>
+                    <button type="submit" disabled aria-describedby="save-note">Conferma squadra</button>
                     <p class="selection-note" id="save-note">La selezione è solo locale alla pagina e non viene salvata. Puoi cambiare categoria e scegliere un’altra squadra; la conferma sarà disponibile in seguito.</p>
                 </form>
                 <p class="login-link">Hai già una carriera? <a href="/login">Accedi al tuo profilo <span aria-hidden="true">→</span></a></p>
